@@ -59,6 +59,7 @@ const translations: Record<Language, Record<string, string>> = {
     'common.edit': 'Edit',
     'common.delete': 'Delete',
     'common.confirm': 'Confirm',
+    'common.all': 'All',
     
     // Hero Section
     'hero.title': 'Authentic Cameroonian Cuisine',
@@ -122,6 +123,8 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Delivery
     'delivery.title': 'Delivery Information',
+    'delivery.description': 'We deliver throughout the Buea region',
+    'delivery.view_zones': 'View zones and rates',
     'delivery.zones': 'Delivery Zones',
     'delivery.time': 'Estimated Time',
     'delivery.fee': 'Delivery Fee',
@@ -133,6 +136,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Reviews
     'reviews.title': 'Customer Reviews',
     'reviews.subtitle': 'What our customers say',
+    'reviews.view_all': 'View all reviews',
     'reviews.rating': 'Rating',
     'reviews.verified': 'Verified Customer',
     'reviews.write_review': 'Write a Review',
@@ -167,7 +171,14 @@ const translations: Record<Language, Record<string, string>> = {
     'stats.customers_served': 'Customers Served',
     'stats.dishes_delivered': 'Dishes Delivered',
     'stats.years_experience': 'Years of Experience',
-    'stats.average_rating': 'Average Rating'
+    'stats.average_rating': 'Average Rating',
+    
+    // Carousel
+    'carousel.title': 'Our Promotions',
+    'carousel.description': 'Discover our special offers and latest creations',
+    'carousel.view_menu': 'Discover our complete menu',
+    'carousel.auto_play': 'Auto-play (30s)',
+    'carousel.paused': 'Slideshow paused'
   },
   fr: {
     // Navigation
@@ -213,6 +224,7 @@ const translations: Record<Language, Record<string, string>> = {
     'common.edit': 'Modifier',
     'common.delete': 'Supprimer',
     'common.confirm': 'Confirmer',
+    'common.all': 'Tous',
     
     // Hero Section
     'hero.title': 'Cuisine Camerounaise Authentique',
@@ -275,7 +287,9 @@ const translations: Record<Language, Record<string, string>> = {
     'footer.copyright': '© 2024 BueaDelights. Tous droits réservés.',
     
     // Delivery
-    'delivery.title': 'Informations de Livraison',
+    'delivery.title': 'Zones de Livraison',
+    'delivery.description': 'Nous livrons dans toute la région de Buea',
+    'delivery.view_zones': 'Voir les zones et tarifs',
     'delivery.zones': 'Zones de Livraison',
     'delivery.time': 'Temps Estimé',
     'delivery.fee': 'Frais de Livraison',
@@ -285,8 +299,9 @@ const translations: Record<Language, Record<string, string>> = {
     'delivery.extended': 'Zones Étendues',
     
     // Reviews
-    'reviews.title': 'Avis Clients',
-    'reviews.subtitle': 'Ce que disent nos clients',
+    'reviews.title': 'Nos Clients Témoignent',
+    'reviews.subtitle': 'Découvrez ce que disent nos clients satisfaits',
+    'reviews.view_all': 'Voir tous les avis',
     'reviews.rating': 'Note',
     'reviews.verified': 'Client Vérifié',
     'reviews.write_review': 'Écrire un Avis',
@@ -321,7 +336,14 @@ const translations: Record<Language, Record<string, string>> = {
     'stats.customers_served': 'Clients Servis',
     'stats.dishes_delivered': 'Plats Livrés',
     'stats.years_experience': 'Années d\'Expérience',
-    'stats.average_rating': 'Note Moyenne'
+    'stats.average_rating': 'Note Moyenne',
+    
+    // Carousel
+    'carousel.title': 'Nos Promotions',
+    'carousel.description': 'Découvrez nos offres spéciales et nouveautés du moment',
+    'carousel.view_menu': 'Découvrir notre menu complet',
+    'carousel.auto_play': 'Défilement automatique (30s)',
+    'carousel.paused': 'Défilement en pause'
   }
 };
 

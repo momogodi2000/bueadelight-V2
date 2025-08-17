@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, Phone, X, ShoppingCart, Heart } from 'lucide-react';
-import { useCart } from '@/hooks/useCart';
+import { useCart } from '@/contexts/CartContext';
 
 const WHATSAPP_NUMBER = '+237699808260';
 const WHATSAPP_LINK = `https://wa.me/237699808260`;

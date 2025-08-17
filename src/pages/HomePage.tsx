@@ -8,12 +8,16 @@ import FeaturedDishes from '@/components/sections/FeaturedDishes';
 import WhyChooseUs from '@/components/sections/WhyChooseUs';
 import BusinessStats from '@/components/sections/BusinessStats';
 import OurStory from '@/components/home/OurStory';
+import FlyerCarousel from '@/components/home/FlyerCarousel';
 // import DeliveryZones from '@/components/home/DeliveryZones';
 // import Testimonials from '@/components/home/Testimonials';
 // import Newsletter from '@/components/home/Newsletter';
 
 // Constants
 import { BUSINESS_INFO, SEO_CONFIG } from '@/constants';
+
+// Hooks
+import { useLanguage } from '@/contexts/LanguageContext';
 
 /**
  * BueaDelights Homepage Component
@@ -27,6 +31,8 @@ import { BUSINESS_INFO, SEO_CONFIG } from '@/constants';
  * - Newsletter signup
  */
 const HomePage: React.FC = () => {
+  const { t } = useLanguage();
+
   return (
     <>
       {/* SEO Meta Tags */}
@@ -99,6 +105,9 @@ const HomePage: React.FC = () => {
           <FeaturedDishes />
         </section>
         
+        {/* Flyer Carousel Section */}
+        <FlyerCarousel />
+        
         {/* Business Statistics */}
         <section className="py-16 bg-forest-500 text-white">
           <BusinessStats />
@@ -118,10 +127,10 @@ const HomePage: React.FC = () => {
         <section className="py-16 bg-white">
           <div className="section-container text-center">
             <h2 className="text-4xl font-display font-bold text-gray-900 mb-4">
-              Zones de Livraison
+              {t('delivery.title')}
             </h2>
             <p className="text-xl text-gray-600 mb-8">
-              Nous livrons dans toute la région de Buea
+              {t('delivery.description')}
             </p>
             <motion.a
               href="/delivery"
@@ -129,7 +138,7 @@ const HomePage: React.FC = () => {
               whileTap={{ scale: 0.95 }}
               className="btn-primary inline-block"
             >
-              Voir les zones et tarifs
+              {t('delivery.view_zones')}
             </motion.a>
           </div>
         </section>
@@ -138,10 +147,10 @@ const HomePage: React.FC = () => {
         <section className="py-16 bg-cream-50">
           <div className="section-container text-center">
             <h2 className="text-4xl font-display font-bold text-gray-900 mb-4">
-              Nos Clients Témoignent
+              {t('reviews.title')}
             </h2>
             <p className="text-xl text-gray-600 mb-8">
-              Découvrez ce que disent nos clients satisfaits
+              {t('reviews.subtitle')}
             </p>
             <motion.a
               href="/reviews"
@@ -149,7 +158,7 @@ const HomePage: React.FC = () => {
               whileTap={{ scale: 0.95 }}
               className="btn-primary inline-block"
             >
-              Voir tous les avis
+              {t('reviews.view_all')}
             </motion.a>
           </div>
         </section>

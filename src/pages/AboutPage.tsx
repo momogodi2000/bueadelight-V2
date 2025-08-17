@@ -130,7 +130,7 @@ const AboutPage: React.FC = () => {
     {
       name: 'Caroline Folefack Viviane',
       role: 'Fondatrice & Chef Exécutive',
-      photo: '/avatars/caroline.jpg',
+      photo: '/image/admin-caro2.jpeg',
       story: 'Passionnée de cuisine traditionnelle camerounaise depuis l\'enfance, Caroline a transformé sa passion en entreprise prospère.',
       specialties: ['Ndolé', 'Eru', 'Cuisine traditionnelle'],
       experience: '15+ années'
@@ -216,7 +216,7 @@ const AboutPage: React.FC = () => {
               transition={{ delay: 0.2 }}
             >
               <img
-                src="/avatars/caroline.jpg"
+                src="/image/admin-caro2.jpeg"
                 alt="Caroline Folefack Viviane"
                 className="w-full h-96 object-cover rounded-2xl shadow-lg"
                 onError={(e) => {

@@ -331,7 +331,7 @@ const Footer: React.FC = () => {
       <div className="bg-forest-900 py-3">
         <div className="section-container">
           <p className="text-center text-forest-400 text-xs">
-            Website crafted with modern technologies • React + Vite + TypeScript + Tailwind CSS
+            Built with ❤️ by <span className="text-golden-500 font-semibold">ING MOMO GODI YVAN</span> • React + Vite + TypeScript + Tailwind CSS
             <br />
             <span className="text-golden-500">Local Flavors at Your Fingertips</span> 🍽️
           </p>

@@ -287,13 +287,95 @@ export const menuData: MenuItem[] = [
       medium: { amount: 500, label: 'Verre moyen' },
       large: { amount: 700, label: 'Grand verre' }
     },
-    images: ['bissap_main.webp', 'bissap_preparation.webp'],
+    images: ['jus.jpeg', 'jus2.jpeg'],
     spiciness: 0,
     preparationTime: '5 min',
     rating: 4.6,
     reviewCount: 678,
     availability: true,
     badge: 'popular'
+  },
+
+  {
+    id: 'kossam_001',
+    name: 'Kossam (Yaourt Naturel)',
+    category: 'drinks',
+    description: 'Traditional Cameroonian fermented milk drink, creamy and nutritious',
+    ingredients: ['Lait frais', 'Ferments lactiques', 'Sucre naturel', 'Vanille'],
+    allergens: ['Lait'],
+    prices: {
+      small: { amount: 350, label: 'Petit pot' },
+      medium: { amount: 550, label: 'Pot moyen' },
+      large: { amount: 750, label: 'Grand pot' }
+    },
+    images: ['kossam.jpeg'],
+    spiciness: 0,
+    preparationTime: '2 min',
+    rating: 4.7,
+    reviewCount: 234,
+    availability: true,
+    badge: 'new'
+  },
+
+  {
+    id: 'ananas_001',
+    name: 'Jus d\'Ananas Frais',
+    category: 'drinks',
+    description: 'Fresh pineapple juice, naturally sweet and rich in vitamins',
+    ingredients: ['Ananas frais', 'Gingembre', 'Menthe', 'Citron vert'],
+    allergens: [],
+    prices: {
+      small: { amount: 400, label: 'Petit verre' },
+      medium: { amount: 600, label: 'Verre moyen' },
+      large: { amount: 800, label: 'Grand verre' }
+    },
+    images: ['jusnew.jpeg'],
+    spiciness: 0,
+    preparationTime: '3 min',
+    rating: 4.5,
+    reviewCount: 189,
+    availability: true
+  },
+
+  {
+    id: 'cocktail_001',
+    name: 'Cocktail de Fruits',
+    category: 'drinks',
+    description: 'Mixed tropical fruit cocktail with papaya, mango, pineapple and passion fruit',
+    ingredients: ['Papaye', 'Mangue', 'Ananas', 'Fruit de la passion', 'Citron', 'Miel'],
+    allergens: [],
+    prices: {
+      small: { amount: 500, label: 'Petit verre' },
+      medium: { amount: 750, label: 'Verre moyen' },
+      large: { amount: 1000, label: 'Grand verre' }
+    },
+    images: ['cocktail.jpeg', 'cocktail2.jpeg'],
+    spiciness: 0,
+    preparationTime: '5 min',
+    rating: 4.8,
+    reviewCount: 345,
+    availability: true,
+    badge: 'popular'
+  },
+
+  {
+    id: 'baoba_001',
+    name: 'Jus de Baobab',
+    category: 'drinks',
+    description: 'Traditional African superfruit drink, rich in vitamin C and antioxidants',
+    ingredients: ['Pulpe de baobab', 'Lait', 'Sucre', 'Vanille', 'Gingembre'],
+    allergens: ['Lait'],
+    prices: {
+      small: { amount: 450, label: 'Petit verre' },
+      medium: { amount: 650, label: 'Verre moyen' },
+      large: { amount: 850, label: 'Grand verre' }
+    },
+    images: ['baoba.jpeg', 'baoba2.jpeg'],
+    spiciness: 0,
+    preparationTime: '4 min',
+    rating: 4.3,
+    reviewCount: 156,
+    availability: true
   },
 
   {
@@ -308,11 +390,31 @@ export const menuData: MenuItem[] = [
       medium: { amount: 600, label: 'Verre moyen' },
       large: { amount: 800, label: 'Grand verre' }
     },
-    images: ['ginger_beer_main.webp', 'ginger_fresh.webp'],
+    images: ['jus.jpeg'],
     spiciness: 2,
     preparationTime: '3-5 min',
     rating: 4.4,
     reviewCount: 289,
+    availability: true
+  },
+
+  {
+    id: 'folere_001',
+    name: 'Folëré (Jus de Gingembre)',
+    category: 'drinks',
+    description: 'Traditional spicy ginger drink, perfect for digestion and energy',
+    ingredients: ['Gingembre frais', 'Citron', 'Miel', 'Piment doux', 'Menthe'],
+    allergens: [],
+    prices: {
+      small: { amount: 350, label: 'Petit verre' },
+      medium: { amount: 550, label: 'Verre moyen' },
+      large: { amount: 750, label: 'Grand verre' }
+    },
+    images: ['folere.jpeg'],
+    spiciness: 3,
+    preparationTime: '4 min',
+    rating: 4.6,
+    reviewCount: 198,
     availability: true
   },
 
@@ -349,11 +451,194 @@ export const menuData: MenuItem[] = [
       medium: { amount: 1200, label: '3 œufs' },
       large: { amount: 1600, label: '4 œufs avec légumes' }
     },
-    images: ['omelette_main.webp', 'omelette_bread.webp'],
+    images: ['painavant.jpeg'],
     spiciness: 2,
     preparationTime: '10-15 min',
     rating: 4.3,
     reviewCount: 167,
+    availability: true
+  },
+
+  {
+    id: 'pain_001',
+    name: 'Pain Maison',
+    category: 'breakfast',
+    description: 'Freshly baked traditional Cameroonian bread, soft and aromatic',
+    ingredients: ['Farine', 'Levure', 'Lait', 'Beurre', 'Sucre', 'Sel'],
+    allergens: ['Gluten', 'Lait'],
+    prices: {
+      small: { amount: 200, label: '1 pain' },
+      medium: { amount: 350, label: '2 pains' },
+      large: { amount: 500, label: '3 pains' }
+    },
+    images: ['pain3.jpeg'],
+    spiciness: 0,
+    preparationTime: '5 min',
+    rating: 4.6,
+    reviewCount: 234,
+    availability: true
+  },
+
+  {
+    id: 'cake_001',
+    name: 'Cake Maison',
+    category: 'breakfast',
+    description: 'Homemade sponge cake, perfect for breakfast or afternoon tea',
+    ingredients: ['Farine', 'Œufs', 'Sucre', 'Beurre', 'Vanille', 'Levure'],
+    allergens: ['Gluten', 'Œufs', 'Lait'],
+    prices: {
+      small: { amount: 500, label: 'Petite tranche' },
+      medium: { amount: 800, label: 'Tranche normale' },
+      large: { amount: 1200, label: 'Grande tranche' }
+    },
+    images: ['cake.jpeg', 'cake2.jpeg', 'cake maison.jpeg'],
+    spiciness: 0,
+    preparationTime: '3 min',
+    rating: 4.4,
+    reviewCount: 189,
+    availability: true
+  },
+
+  {
+    id: 'croquette_001',
+    name: 'Croquettes de Plantain',
+    category: 'breakfast',
+    description: 'Crispy plantain fritters, perfect breakfast treat',
+    ingredients: ['Plantains mûrs', 'Farine', 'Œufs', 'Épices', 'Huile'],
+    allergens: ['Gluten', 'Œufs'],
+    prices: {
+      small: { amount: 400, label: '3 pièces' },
+      medium: { amount: 700, label: '5 pièces' },
+      large: { amount: 1000, label: '8 pièces' }
+    },
+    images: ['croquette.jpeg'],
+    spiciness: 1,
+    preparationTime: '8 min',
+    rating: 4.5,
+    reviewCount: 145,
+    availability: true
+  },
+
+  {
+    id: 'bouillie_001',
+    name: 'Bouillie de Mil',
+    category: 'breakfast',
+    description: 'Traditional millet porridge, nutritious and energizing breakfast',
+    ingredients: ['Farine de mil', 'Lait', 'Sucre', 'Vanille', 'Cannelle'],
+    allergens: ['Lait'],
+    prices: {
+      small: { amount: 300, label: 'Petit bol' },
+      medium: { amount: 500, label: 'Bol moyen' },
+      large: { amount: 700, label: 'Grand bol' }
+    },
+    images: ['mague.jpeg'],
+    spiciness: 0,
+    preparationTime: '6 min',
+    rating: 4.2,
+    reviewCount: 98,
+    availability: true
+  },
+
+  // MORE TRADITIONAL DISHES
+  {
+    id: 'fufu_001',
+    name: 'Fufu de Macabo',
+    category: 'traditional',
+    description: 'Traditional pounded cocoyam served with rich soup',
+    ingredients: ['Macabo', 'Eau', 'Sel', 'Sauce aux légumes'],
+    allergens: [],
+    prices: {
+      small: { amount: 1500, label: 'Petite portion' },
+      medium: { amount: 2000, label: 'Portion normale' },
+      large: { amount: 2800, label: 'Grande portion' }
+    },
+    images: ['fufu.jpeg'],
+    spiciness: 2,
+    preparationTime: '25 min',
+    rating: 4.4,
+    reviewCount: 156,
+    availability: true
+  },
+
+  {
+    id: 'mague_001',
+    name: 'Sauce Mangue Verte',
+    category: 'traditional',
+    description: 'Traditional green mango sauce with fish and vegetables',
+    ingredients: ['Mangue verte', 'Poisson fumé', 'Légumes', 'Huile de palme', 'Épices'],
+    allergens: ['Poissons'],
+    prices: {
+      small: { amount: 1800, label: 'Petite portion' },
+      medium: { amount: 2300, label: 'Portion normale' },
+      large: { amount: 3000, label: 'Grande portion' }
+    },
+    images: ['mague.jpeg'],
+    spiciness: 3,
+    preparationTime: '30 min',
+    rating: 4.3,
+    reviewCount: 134,
+    availability: true
+  },
+
+  {
+    id: 'plantain_chips_001',
+    name: 'Chips de Plantain',
+    category: 'traditional',
+    description: 'Crispy plantain chips, traditional Cameroonian snack',
+    ingredients: ['Plantains verts', 'Huile végétale', 'Sel', 'Épices'],
+    allergens: [],
+    prices: {
+      small: { amount: 300, label: 'Petit sachet' },
+      medium: { amount: 500, label: 'Sachet moyen' },
+      large: { amount: 800, label: 'Grand sachet' }
+    },
+    images: ['Chips de plantain.jpeg'],
+    spiciness: 1,
+    preparationTime: '15 min',
+    rating: 4.7,
+    reviewCount: 298,
+    availability: true,
+    badge: 'popular'
+  },
+
+  {
+    id: 'caro_special_001',
+    name: 'Spécialité Caro',
+    category: 'traditional',
+    description: 'Caroline\'s special recipe with mixed vegetables and meat',
+    ingredients: ['Légumes mélangés', 'Viande de bœuf', 'Épices secrètes', 'Huile de palme'],
+    allergens: [],
+    prices: {
+      small: { amount: 2200, label: 'Petite portion' },
+      medium: { amount: 2800, label: 'Portion normale' },
+      large: { amount: 3500, label: 'Grande portion' }
+    },
+    images: ['caro.jpeg', 'caro2.jpeg', 'caro3.jpeg'],
+    spiciness: 3,
+    preparationTime: '35 min',
+    rating: 4.9,
+    reviewCount: 445,
+    availability: true,
+    badge: 'house-special'
+  },
+
+  {
+    id: 'cassy_001',
+    name: 'Cassy (Feuilles de Manioc)',
+    category: 'traditional',
+    description: 'Traditional cassava leaves cooked with groundnuts and meat',
+    ingredients: ['Feuilles de manioc', 'Pâte d\'arachide', 'Viande', 'Poisson fumé', 'Épices'],
+    allergens: ['Arachides', 'Poissons'],
+    prices: {
+      small: { amount: 1900, label: 'Petite portion' },
+      medium: { amount: 2400, label: 'Portion normale' },
+      large: { amount: 3200, label: 'Grande portion' }
+    },
+    images: ['cassy.jpeg'],
+    spiciness: 2,
+    preparationTime: '40 min',
+    rating: 4.5,
+    reviewCount: 187,
     availability: true
   }
 ];

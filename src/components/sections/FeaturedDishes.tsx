@@ -5,8 +5,9 @@ import { MenuItem } from '@/types';
 import { menuData } from '@/data/menuData';
 import { formatPrice, generateWhatsAppMessage } from '@/utils';
 import { BUSINESS_INFO } from '@/constants';
-import { useCart } from '@/hooks/useCart';
-import { useFavorites } from '@/hooks/useFavorites';
+import { useCart } from '@/contexts/CartContext';
+import { useFavorites } from '@/contexts/FavoritesContext';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 /**
  * Featured Dishes Section Component
@@ -25,16 +26,17 @@ const FeaturedDishes: React.FC = () => {
   const [featuredItems, setFeaturedItems] = useState<MenuItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   
-  const { addToCart } = useCart();
+  const { addItem } = useCart();
   const { favorites, toggleFavorite } = useFavorites();
+  const { t } = useLanguage();
 
   // Featured categories for filtering
   const categories = [
-    { id: 'all', label: 'Tous', icon: '🍽️' },
-    { id: 'traditional', label: 'Traditionnels', icon: '🏺' },
-    { id: 'grilled', label: 'Grillades', icon: '🔥' },
-    { id: 'rice', label: 'Riz', icon: '🍚' },
-    { id: 'drinks', label: 'Boissons', icon: '🥤' }
+    { id: 'all', label: t('common.all') || 'Tous', icon: '🍽️' },
+    { id: 'traditional', label: t('category.traditional'), icon: '🏺' },
+    { id: 'grilled', label: t('category.grilled'), icon: '🔥' },
+    { id: 'rice', label: t('category.rice'), icon: '🍚' },
+    { id: 'drinks', label: t('category.drinks'), icon: '🥤' }
   ];
 
   // Load featured items (top-rated and popular)
@@ -161,7 +163,7 @@ Pouvez-vous confirmer la disponibilité et me donner les détails de livraison? 
           >
             <ChefHat className="w-8 h-8 text-forest-600" />
             <h2 className="text-4xl md:text-5xl font-bold text-charcoal-800 font-heading">
-              Nos Spécialités
+              {t('featured.title')}
             </h2>
             <ChefHat className="w-8 h-8 text-forest-600" />
           </motion.div>
@@ -173,8 +175,7 @@ Pouvez-vous confirmer la disponibilité et me donner les détails de livraison? 
             viewport={{ once: true }}
             className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed"
           >
-            Découvrez l'authenticité de la cuisine camerounaise avec nos plats traditionnels 
-            préparés selon les recettes ancestrales et les meilleurs ingrédients locaux.
+            {t('featured.description')}
           </motion.p>
           
           <motion.div
@@ -185,7 +186,7 @@ Pouvez-vous confirmer la disponibilité et me donner les détails de livraison? 
             className="flex items-center justify-center space-x-2 mt-4 text-sm text-forest-600 font-medium"
           >
             <MapPin className="w-4 h-4" />
-            <span>Authentique cuisine de Buea • Livraison dans tout le Sud-Ouest</span>
+            <span>{t('featured.location')}</span>
           </motion.div>
         </div>
 
@@ -264,13 +265,13 @@ Pouvez-vous confirmer la disponibilité et me donner les détails de livraison? 
                       {item.rating >= 4.8 && (
                         <span className="bg-golden-500 text-white px-2 py-1 rounded-full text-xs font-bold flex items-center space-x-1">
                           <Star className="w-3 h-3 fill-current" />
-                          <span>Populaire</span>
+                          <span>{t('badges.popular')}</span>
                         </span>
                       )}
                       {item.spiciness && item.spiciness >= 3 && (
                         <span className="bg-red-500 text-white px-2 py-1 rounded-full text-xs font-bold flex items-center space-x-1">
                           <Flame className="w-3 h-3" />
-                          <span>Épicé</span>
+                          <span>{t('badges.spicy')}</span>
                         </span>
                       )}
                     </div>
@@ -297,13 +298,13 @@ Pouvez-vous confirmer la disponibilité et me donner les détails de livraison? 
                           className="bg-white/90 backdrop-blur-sm text-forest-600 px-4 py-2 rounded-full font-medium flex items-center space-x-2 hover:bg-white transition-colors duration-200"
                         >
                           <ShoppingCart className="w-4 h-4" />
-                          <span>Ajouter</span>
+                          <span>{t('common.add_to_cart')}</span>
                         </button>
                         <button
                           onClick={() => handleWhatsAppOrder(item)}
                           className="bg-green-500 text-white px-4 py-2 rounded-full font-medium flex items-center space-x-2 hover:bg-green-600 transition-colors duration-200"
                         >
-                          <span>Commander</span>
+                          <span>{t('common.order_now')}</span>
                           <ArrowRight className="w-4 h-4" />
                         </button>
                       </div>
