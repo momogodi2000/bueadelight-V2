@@ -10,6 +10,8 @@ export const BUSINESS_INFO = {
   location: 'Buea, Southwest Region, Cameroon',
   whatsappNumber: '+237699808260',
   whatsappNumberFormatted: '237699808260',
+  whatsapp: '+237699808260',
+  whatsappLink: `https://wa.me/237699808260`,
   email: 'info@bueadelights.com',
   website: 'https://bueadelights.com'
 } as const;
@@ -106,6 +108,7 @@ export const DELIVERY_ZONES = {
 // Business Statistics
 export const BUSINESS_STATS = {
   customersServed: 1500,
+  totalCustomers: 1500,
   dishesDelivered: 5000,
   averageRating: 4.9,
   yearsInBusiness: 5,

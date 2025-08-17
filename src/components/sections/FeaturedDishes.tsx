@@ -63,7 +63,7 @@ const FeaturedDishes: React.FC = () => {
     : featuredItems.filter(item => item.category === selectedCategory);
 
   const handleAddToCart = (item: MenuItem) => {
-    addToCart(item, 'medium'); // Default to medium size
+    addItem(item, 'medium'); // Default to medium size
     
     // Track analytics
     if (typeof window !== 'undefined' && (window as any).gtag) {
@@ -344,13 +344,13 @@ Pouvez-vous confirmer la disponibilité et me donner les détails de livraison? 
                         className="flex-1 bg-forest-50 text-forest-600 py-2 px-3 rounded-lg font-medium hover:bg-forest-100 transition-colors duration-200 flex items-center justify-center space-x-2"
                       >
                         <ShoppingCart className="w-4 h-4" />
-                        <span>Panier</span>
+                        <span>{t('cart.title')}</span>
                       </button>
                       <button
                         onClick={() => handleWhatsAppOrder(item)}
                         className="flex-1 bg-forest-600 text-white py-2 px-3 rounded-lg font-medium hover:bg-forest-700 transition-colors duration-200 flex items-center justify-center space-x-2"
                       >
-                        <span>Commander</span>
+                        <span>{t('common.order_now')}</span>
                       </button>
                     </div>
                   </div>
@@ -372,7 +372,7 @@ Pouvez-vous confirmer la disponibilité et me donner les détails de livraison? 
             href="/menu"
             className="inline-flex items-center space-x-2 bg-forest-600 text-white px-8 py-3 rounded-full font-semibold text-lg hover:bg-forest-700 transition-all duration-300 hover:scale-105 hover:shadow-lg"
           >
-            <span>Voir tout le menu</span>
+            <span>{t('featured.view_all_menu')}</span>
             <ArrowRight className="w-5 h-5" />
           </a>
         </motion.div>

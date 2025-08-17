@@ -301,17 +301,17 @@ export function useAnalytics() {
   const trackEvent = (eventName: string, properties?: Record<string, any>) => {
     try {
       // Google Analytics 4
-      if (typeof gtag !== 'undefined') {
-        gtag('event', eventName, properties);
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', eventName, properties);
       }
 
       // Meta Pixel
-      if (typeof fbq !== 'undefined') {
-        fbq('track', eventName, properties);
+      if (typeof window !== 'undefined' && window.fbq) {
+        window.fbq('track', eventName, properties);
       }
 
       // Console log for development
-      if (process.env.NODE_ENV === 'development') {
+      if (import.meta.env.DEV) {
         console.log('Analytics Event:', eventName, properties);
       }
     } catch (error) {

@@ -6,7 +6,7 @@ interface LanguageContextType {
   language: Language;
   setLanguage: (language: Language) => void;
   toggleLanguage: () => void;
-  t: (key: string) => string;
+  t: (key: string, params?: Record<string, string | number>) => string;
 }
 
 const LanguageContext = createContext<LanguageContextType | null>(null);
@@ -75,6 +75,12 @@ const translations: Record<Language, Record<string, string>> = {
     'category.snacks': 'Snacks',
     'category.drinks': 'Beverages',
     'category.breakfast': 'Breakfast',
+    
+    // Menu Page
+    'menu.title': 'Our Menu',
+    'menu.description': 'Discover our authentic Cameroonian dishes',
+    'menu.search_placeholder': 'Search for a dish...',
+    'menu.categories': 'Categories',
     
     // About
     'about.title': 'Our Story',
@@ -178,7 +184,19 @@ const translations: Record<Language, Record<string, string>> = {
     'carousel.description': 'Discover our special offers and latest creations',
     'carousel.view_menu': 'Discover our complete menu',
     'carousel.auto_play': 'Auto-play (30s)',
-    'carousel.paused': 'Slideshow paused'
+    'carousel.paused': 'Slideshow paused',
+    
+    // Featured Section
+    'featured.title': 'Our Specialties',
+    'featured.description': 'Discover the authenticity of Cameroonian cuisine with our traditional dishes prepared according to ancestral recipes and the finest local ingredients.',
+    'featured.location': 'Authentic cuisine from Buea • Delivery throughout the Southwest',
+    'featured.view_all_menu': 'View all menu',
+    
+    // Badges
+    'badges.popular': 'Popular',
+    'badges.spicy': 'Spicy',
+    'badges.new': 'New',
+    'badges.house_special': 'House Special'
   },
   fr: {
     // Navigation
@@ -240,6 +258,12 @@ const translations: Record<Language, Record<string, string>> = {
     'category.snacks': 'Collations',
     'category.drinks': 'Boissons',
     'category.breakfast': 'Petit Déjeuner',
+    
+    // Menu Page
+    'menu.title': 'Notre Menu',
+    'menu.description': 'Découvrez nos plats camerounais authentiques',
+    'menu.search_placeholder': 'Rechercher un plat...',
+    'menu.categories': 'Catégories',
     
     // About
     'about.title': 'Notre Histoire',
@@ -343,7 +367,19 @@ const translations: Record<Language, Record<string, string>> = {
     'carousel.description': 'Découvrez nos offres spéciales et nouveautés du moment',
     'carousel.view_menu': 'Découvrir notre menu complet',
     'carousel.auto_play': 'Défilement automatique (30s)',
-    'carousel.paused': 'Défilement en pause'
+    'carousel.paused': 'Défilement en pause',
+    
+    // Featured Section
+    'featured.title': 'Nos Spécialités',
+    'featured.description': 'Découvrez l\'authenticité de la cuisine camerounaise avec nos plats traditionnels préparés selon les recettes ancestrales et les meilleurs ingrédients locaux.',
+    'featured.location': 'Authentique cuisine de Buea • Livraison dans tout le Sud-Ouest',
+    'featured.view_all_menu': 'Voir tout le menu',
+    
+    // Badges
+    'badges.popular': 'Populaire',
+    'badges.spicy': 'Épicé',
+    'badges.new': 'Nouveau',
+    'badges.house_special': 'Spécialité Maison'
   }
 };
 

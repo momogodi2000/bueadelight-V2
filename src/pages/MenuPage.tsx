@@ -281,10 +281,10 @@ const MenuPage: React.FC = () => {
               className="text-center"
             >
               <h1 className="text-4xl font-bold text-gray-900 mb-2">
-                Notre Menu
+                {t('menu.title')}
               </h1>
               <p className="text-xl text-gray-600">
-                Découvrez nos plats camerounais authentiques
+                {t('menu.description')}
               </p>
             </motion.div>
           </div>
@@ -298,7 +298,7 @@ const MenuPage: React.FC = () => {
               <Search size={20} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
               <input
                 type="text"
-                placeholder="Rechercher un plat..."
+                placeholder={t('menu.search_placeholder')}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-forest-500 focus:border-transparent"
@@ -307,7 +307,7 @@ const MenuPage: React.FC = () => {
 
             {/* Categories */}
             <div className="mb-6">
-              <h3 className="text-lg font-semibold mb-3">Catégories</h3>
+              <h3 className="text-lg font-semibold mb-3">{t('menu.categories')}</h3>
               <div className="flex flex-wrap gap-2">
                 <button
                   onClick={() => setSelectedCategory('all')}
@@ -317,7 +317,7 @@ const MenuPage: React.FC = () => {
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
                 >
-                  Tous
+                  {t('common.all')}
                 </button>
                 {categories.map(([key, category]) => (
                   <button

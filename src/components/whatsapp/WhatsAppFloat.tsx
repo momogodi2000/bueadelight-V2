@@ -18,7 +18,7 @@ const WhatsAppFloat: React.FC = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const { cartItems, cartItemsCount } = useCart();
+  const { items, itemCount } = useCart();
 
   // Quick action messages
   const quickActions: QuickAction[] = [
@@ -31,9 +31,9 @@ const WhatsAppFloat: React.FC = () => {
     },
     {
       id: 'cart',
-      label: `Panier ${cartItemsCount > 0 ? `(${cartItemsCount})` : ''}`,
-      message: cartItemsCount > 0 
-        ? `Bonjour! J'ai ${cartItemsCount} article(s) dans mon panier et je souhaite finaliser ma commande. Pouvez-vous me confirmer la disponibilité et le temps de livraison? 🛒`
+      label: `Panier ${itemCount > 0 ? `(${itemCount})` : ''}`,
+      message: itemCount > 0 
+        ? `Bonjour! J'ai ${itemCount} article(s) dans mon panier et je souhaite finaliser ma commande. Pouvez-vous me confirmer la disponibilité et le temps de livraison? 🛒`
         : 'Bonjour! Je souhaite passer une commande. Pouvez-vous m\'aider à choisir parmi vos plats traditionnels camerounais? 🛒',
       icon: ShoppingCart,
       color: 'bg-forest-500 hover:bg-forest-600'
@@ -114,8 +114,8 @@ const WhatsAppFloat: React.FC = () => {
       }
 
       // If cart has items, suggest cart completion
-      const message = cartItemsCount > 0 
-        ? `Bonjour BueaDelights! J'ai ${cartItemsCount} article(s) dans mon panier et je souhaite passer ma commande. Pouvez-vous m'assister? 🛒✨`
+      const message = itemCount > 0 
+        ? `Bonjour BueaDelights! J'ai ${itemCount} article(s) dans mon panier et je souhaite passer ma commande. Pouvez-vous m'assister? 🛒✨`
         : 'Bonjour BueaDelights! Je souhaite découvrir votre cuisine camerounaise authentique. Que me recommandez-vous aujourd\'hui? 🍽️';
 
       const encodedMessage = encodeURIComponent(message);
@@ -194,13 +194,13 @@ const WhatsAppFloat: React.FC = () => {
                 <MessageCircle className="w-8 h-8 group-hover:scale-110 transition-transform duration-300" />
                 
                 {/* Cart indicator */}
-                {cartItemsCount > 0 && (
+                {itemCount > 0 && (
                   <motion.div
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     className="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center animate-bounce"
                   >
-                    {cartItemsCount > 9 ? '9+' : cartItemsCount}
+                    {itemCount > 9 ? '9+' : itemCount}
                   </motion.div>
                 )}
               </button>
@@ -214,8 +214,8 @@ const WhatsAppFloat: React.FC = () => {
                 }}
                 className="absolute right-full mr-3 top-1/2 transform -translate-y-1/2 bg-gray-900 text-white px-3 py-2 rounded-lg text-sm whitespace-nowrap pointer-events-none"
               >
-                {cartItemsCount > 0 
-                  ? `Commander (${cartItemsCount} articles)` 
+                {itemCount > 0 
+                  ? `Commander (${itemCount} articles)` 
                   : 'Commander via WhatsApp'
                 }
                 <div className="absolute right-0 top-1/2 transform translate-x-1 -translate-y-1/2">
