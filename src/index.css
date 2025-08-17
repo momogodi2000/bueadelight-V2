@@ -1,0 +1,412 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap');
+
+/* Custom CSS Variables for BueaDelights */
+:root {
+  /* Brand Colors */
+  --color-forest: #1B5E20;
+  --color-golden: #FFC107;
+  --color-terracotta: #D84315;
+  --color-cream: #FFF8E1;
+  --color-charcoal: #2C2C2C;
+  
+  /* Theme Variables */
+  --theme-primary: #1B5E20;
+  --theme-secondary: #FFF8E1;
+  --theme-accent: #FF8F00;
+  
+  /* Food-specific gradients */
+  --gradient-forest: linear-gradient(135deg, #1B5E20 0%, #2E7D32 100%);
+  --gradient-golden: linear-gradient(135deg, #FFC107 0%, #FF8F00 100%);
+  --gradient-spicy: linear-gradient(135deg, #D84315 0%, #FF5722 100%);
+  
+  /* Animation timings */
+  --timing-fast: 0.2s;
+  --timing-normal: 0.3s;
+  --timing-slow: 0.5s;
+}
+
+/* Theme Classes */
+.theme-light {
+  --theme-primary: #1B5E20;
+  --theme-secondary: #FFF8E1;
+  --theme-accent: #FF8F00;
+}
+
+.theme-dark {
+  --theme-primary: #2E7D32;
+  --theme-secondary: #1A1A1A;
+  --theme-accent: #FFB300;
+}
+
+.theme-forest {
+  --theme-primary: #1B5E20;
+  --theme-secondary: #E8F5E8;
+  --theme-accent: #4CAF50;
+}
+
+.theme-golden {
+  --theme-primary: #E65100;
+  --theme-secondary: #FFF3E0;
+  --theme-accent: #FF8F00;
+}
+
+.theme-terracotta {
+  --theme-primary: #BF360C;
+  --theme-secondary: #FBE9E7;
+  --theme-accent: #FF5722;
+}
+
+/* Base layer customizations */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  body {
+    @apply font-sans text-gray-700 bg-white antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    overflow-x: hidden;
+  }
+  
+  /* Typography base styles */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+    line-height: 1.2;
+  }
+  
+  h1 { @apply text-4xl md:text-5xl lg:text-6xl; }
+  h2 { @apply text-3xl md:text-4xl lg:text-5xl; }
+  h3 { @apply text-2xl md:text-3xl lg:text-4xl; }
+  h4 { @apply text-xl md:text-2xl; }
+  h5 { @apply text-lg md:text-xl; }
+  h6 { @apply text-base md:text-lg; }
+  
+  /* Improved focus states for accessibility */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-forest-500 rounded;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100 rounded;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-forest-400 rounded;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-forest-600;
+  }
+}
+
+/* Component layer - Food-specific components */
+@layer components {
+  
+  /* Button Components */
+  .btn-primary {
+    @apply px-6 py-3 bg-forest-500 text-white font-menu font-semibold rounded-lg shadow-food transition-all duration-300 hover:bg-forest-600 hover:shadow-food-lg hover:scale-105 active:scale-95 focus:ring-4 focus:ring-forest-200;
+  }
+  
+  .btn-secondary {
+    @apply px-6 py-3 bg-golden-500 text-charcoal-700 font-menu font-semibold rounded-lg shadow-golden transition-all duration-300 hover:bg-golden-600 hover:shadow-lg hover:scale-105 active:scale-95;
+  }
+  
+  .btn-whatsapp {
+    @apply px-6 py-3 bg-green-500 text-white font-menu font-semibold rounded-full shadow-lg transition-all duration-300 hover:bg-green-600 hover:shadow-xl hover:scale-105 active:scale-95 flex items-center gap-2;
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  .btn-ghost {
+    @apply px-6 py-3 border-2 border-forest-500 text-forest-500 font-menu font-semibold rounded-lg transition-all duration-300 hover:bg-forest-500 hover:text-white hover:scale-105 active:scale-95;
+  }
+  
+  /* Card Components */
+  .card-food {
+    @apply bg-white rounded-2xl shadow-food p-6 transition-all duration-500 hover:shadow-food-lg hover:scale-105 hover:bg-cream-50;
+  }
+  
+  .card-menu-item {
+    @apply bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-[1.02] hover:rotate-1 group cursor-pointer;
+  }
+  
+  .card-testimonial {
+    @apply bg-cream-50 rounded-xl p-6 shadow-md border-l-4 border-golden-500 transition-all duration-300 hover:shadow-lg hover:bg-cream-100;
+  }
+  
+  /* Input Components */
+  .input-primary {
+    @apply w-full px-4 py-3 border-2 border-gray-200 rounded-lg font-body text-charcoal-700 transition-colors duration-300 focus:border-forest-500 focus:outline-none focus:ring-2 focus:ring-forest-200;
+  }
+  
+  .input-search {
+    @apply w-full px-4 py-3 pl-12 border-2 border-gray-200 rounded-full font-body text-charcoal-700 transition-colors duration-300 focus:border-forest-500 focus:outline-none focus:ring-2 focus:ring-forest-200 bg-white;
+  }
+  
+  /* Navigation Components */
+  .nav-link {
+    @apply font-menu font-medium text-charcoal-600 transition-colors duration-300 hover:text-forest-500 relative;
+  }
+  
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-forest-500 transition-all duration-300;
+  }
+  
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    @apply w-full;
+  }
+  
+  /* Section Components */
+  .section-container {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .hero-section {
+    @apply relative min-h-screen flex items-center justify-center bg-gradient-to-br from-forest-500 via-forest-600 to-forest-700 text-white overflow-hidden;
+  }
+  
+  .hero-overlay {
+    @apply absolute inset-0 bg-black bg-opacity-40 z-10;
+  }
+  
+  .hero-content {
+    @apply relative z-20 text-center max-w-4xl mx-auto px-4;
+  }
+  
+  /* Food-specific animations */
+  .animate-dish-entrance {
+    animation: dishEntrance 0.8s ease-out forwards;
+  }
+  
+  .animate-cart-bounce {
+    animation: cartBounce 0.6s ease-out;
+  }
+  
+  .animate-spice-level {
+    animation: spiceGlow 1s ease-in-out infinite alternate;
+  }
+  
+  /* Gradient text effects */
+  .text-gradient-forest {
+    @apply bg-gradient-to-r from-forest-500 to-forest-700 bg-clip-text text-transparent;
+  }
+  
+  .text-gradient-golden {
+    @apply bg-gradient-to-r from-golden-500 to-golden-700 bg-clip-text text-transparent;
+  }
+  
+  .text-gradient-spicy {
+    @apply bg-gradient-to-r from-terracotta-500 to-red-600 bg-clip-text text-transparent;
+  }
+  
+  /* Badge Components */
+  .badge-spicy {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-terracotta-100 text-terracotta-800;
+  }
+  
+  .badge-popular {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-golden-100 text-golden-800;
+  }
+  
+  .badge-new {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800;
+  }
+  
+  /* Button Components */
+  .btn-primary {
+    @apply bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-200 inline-flex items-center justify-center;
+  }
+  
+  .btn-secondary {
+    @apply bg-white text-green-600 border border-green-600 px-6 py-3 rounded-lg font-semibold hover:bg-green-50 transition-colors duration-200 inline-flex items-center justify-center;
+  }
+  
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Loading states */
+  .skeleton {
+    @apply animate-pulse bg-gray-200 rounded;
+  }
+  
+  .skeleton-text {
+    @apply skeleton h-4 w-full mb-2;
+  }
+  
+  .skeleton-avatar {
+    @apply skeleton h-12 w-12 rounded-full;
+  }
+  
+  .skeleton-image {
+    @apply skeleton aspect-food w-full;
+  }
+  
+  /* Custom scrollbar for specific containers */
+  .scroll-container {
+    scrollbar-width: thin;
+    scrollbar-color: #4CAF50 #F5F5F5;
+  }
+  
+  .scroll-container::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .scroll-container::-webkit-scrollbar-track {
+    @apply bg-gray-100 rounded;
+  }
+  
+  .scroll-container::-webkit-scrollbar-thumb {
+    @apply bg-forest-400 rounded;
+  }
+}
+
+/* Utility layer - Food business specific utilities */
+@layer utilities {
+  
+  /* Responsive text utilities */
+  .text-responsive-xs { @apply text-sm md:text-base; }
+  .text-responsive-sm { @apply text-base md:text-lg; }
+  .text-responsive-md { @apply text-lg md:text-xl; }
+  .text-responsive-lg { @apply text-xl md:text-2xl; }
+  .text-responsive-xl { @apply text-2xl md:text-3xl; }
+  
+  /* Food image aspect ratios */
+  .aspect-food { aspect-ratio: 4/3; }
+  .aspect-hero { aspect-ratio: 16/9; }
+  .aspect-square { aspect-ratio: 1/1; }
+  
+  /* Glass morphism effects */
+  .glass-light {
+    @apply bg-white bg-opacity-10 backdrop-blur-md border border-white border-opacity-20;
+  }
+  
+  .glass-dark {
+    @apply bg-black bg-opacity-10 backdrop-blur-md border border-black border-opacity-20;
+  }
+  
+  /* Food-specific hover effects */
+  .hover-lift {
+    @apply transition-all duration-300 hover:transform hover:scale-105 hover:shadow-lg;
+  }
+  
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-golden;
+  }
+  
+  /* Mobile-first responsive spacing */
+  .space-mobile { @apply space-y-4 md:space-y-6 lg:space-y-8; }
+  .gap-mobile { @apply gap-4 md:gap-6 lg:gap-8; }
+  
+  /* Food category colors */
+  .category-traditional { @apply border-l-4 border-forest-500 bg-forest-50; }
+  .category-rice { @apply border-l-4 border-golden-500 bg-golden-50; }
+  .category-grilled { @apply border-l-4 border-terracotta-500 bg-terracotta-50; }
+  .category-snacks { @apply border-l-4 border-orange-500 bg-orange-50; }
+  .category-drinks { @apply border-l-4 border-blue-500 bg-blue-50; }
+  .category-breakfast { @apply border-l-4 border-purple-500 bg-purple-50; }
+}
+
+/* Custom keyframes for food-specific animations */
+@keyframes dishEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes cartBounce {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes spiceGlow {
+  0% {
+    box-shadow: 0 0 5px rgba(216, 67, 21, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(216, 67, 21, 0.6);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, #f0f0f0 0px, #e0e0e0 40px, #f0f0f0 80px);
+  background-size: 200px;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    @apply text-black bg-white;
+  }
+  
+  .card-food,
+  .card-menu-item {
+    @apply shadow-none border border-gray-300;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .btn-primary {
+    @apply border-2 border-forest-700;
+  }
+  
+  .card-food {
+    @apply border-2 border-gray-300;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .animate-pulse,
+  .animate-bounce,
+  .animate-spin {
+    animation: none;
+  }
+}
