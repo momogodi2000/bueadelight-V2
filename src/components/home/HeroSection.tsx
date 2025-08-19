@@ -78,14 +78,14 @@ const HeroSection: React.FC = () => {
           loop
           playsInline
           onLoadedData={() => setIsVideoLoaded(true)}
-          poster="/image/caro.jpeg" // Fallback image
+          poster="/image/admin-carol.jpeg" // Fallback image
         >
           <source src="/videos/product.mp4" type="video/mp4" />
           <source src="/videos/product2.mp4" type="video/mp4" />
           {/* Fallback for browsers that don't support video */}
           <div 
             className="w-full h-full bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: 'url(/image/caro.jpeg)' }}
+            style={{ backgroundImage: 'url(/image/admin-carol.jpeg)' }}
           />
         </video>
         

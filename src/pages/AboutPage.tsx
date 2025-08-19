@@ -138,7 +138,7 @@ const AboutPage: React.FC = () => {
     {
       name: 'Martin Efon',
       role: 'Chef de Cuisine',
-      photo: '/avatars/martin.jpg',
+      photo: '/avatars/avatar1.jpg',
       story: 'Expert en grillades et plats mijotés, Martin apporte son expertise culinaire à chaque création.',
       specialties: ['Grillades', 'Poisson braisé', 'Sauces'],
       experience: '10+ années'
@@ -146,7 +146,7 @@ const AboutPage: React.FC = () => {
     {
       name: 'Grace Musa',
       role: 'Responsable Qualité',
-      photo: '/avatars/grace.jpg',
+      photo: '/avatars/avatar2.jpg',
       story: 'Spécialiste en nutrition et sécurité alimentaire, Grace veille à la qualité de chaque plat.',
       specialties: ['Contrôle qualité', 'Nutrition', 'Hygiène'],
       experience: '8+ années'

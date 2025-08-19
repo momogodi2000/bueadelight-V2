@@ -28,7 +28,7 @@ const OurStory: React.FC = () => {
     founder: {
       name: 'Caroline Folefack Viviane',
       title: 'Fondatrice & Chef Exécutive',
-      image: '/avatars/caroline-founder.jpg',
+      image: '/avatars/girls.jpeg',
       quote: "La cuisine camerounaise est un art qui se transmet de cœur à cœur. Chaque plat raconte une histoire, chaque épice porte nos traditions.",
       background: "Passionnée de cuisine depuis l'enfance à Buea, Caroline a appris les secrets culinaires auprès de sa grand-mère. Diplômée en gestion hôtelière, elle combine tradition ancestrale et standards modernes."
     },
@@ -83,14 +83,14 @@ const OurStory: React.FC = () => {
       title: 'Les Premières Saveurs',
       description: 'Caroline découvre sa passion pour la cuisine aux côtés de sa grand-mère Mama Folefack.',
       icon: Home,
-      image: '/images/story-childhood.jpg'
+              image: '/image/admin-caro2.jpeg'
     },
     {
       year: '2018',
       title: 'Formation Culinaire',
       description: 'Perfectionnement des techniques et apprentissage des standards internationaux.',
       icon: ChefHat,
-      image: '/images/story-training.jpg'
+              image: '/image/admin-caro3.jpeg'
     },
     {
       year: '2020',

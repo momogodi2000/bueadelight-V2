@@ -14,37 +14,37 @@ const FlyerCarousel: React.FC = () => {
       id: 1,
       image: '/flyer/ananas.jpeg',
       title: 'Jus d\'Ananas Frais',
-      description: 'Délicieux jus d\'ananas naturel'
+      description: 'Délicieux jus d\'ananas naturel et rafraîchissant'
     },
     {
       id: 2,
       image: '/flyer/baoba.jpeg',
       title: 'Jus de Baobab',
-      description: 'Superfruit africain riche en vitamines'
+      description: 'Superfruit africain riche en vitamines et antioxydants'
     },
     {
       id: 3,
       image: '/flyer/cassy.jpeg',
       title: 'Cassy Traditional',
-      description: 'Feuilles de manioc authentiques'
+      description: 'Feuilles de manioc authentiques cuisinées à la traditionnelle'
     },
     {
       id: 4,
       image: '/flyer/cocktail.jpeg',
       title: 'Cocktail de Fruits',
-      description: 'Mélange tropical rafraîchissant'
+      description: 'Mélange tropical rafraîchissant avec fruits locaux'
     },
     {
       id: 5,
-      image: '/image/flyser.jpeg',
+      image: '/flyer/flyser.jpeg',
       title: 'Spécialités BueaDelights',
-      description: 'Découvrez nos plats signature'
+      description: 'Découvrez nos plats signature préparés avec amour'
     },
     {
       id: 6,
-      image: '/image/flyser2.jpeg',
+      image: '/flyer/flyser2.jpeg',
       title: 'Menu Complet',
-      description: 'Toute notre gamme de produits'
+      description: 'Toute notre gamme de produits authentiques camerounais'
     }
   ];
 

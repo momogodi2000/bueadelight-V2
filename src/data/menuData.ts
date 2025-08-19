@@ -287,7 +287,7 @@ export const menuData: MenuItem[] = [
       medium: { amount: 500, label: 'Verre moyen' },
       large: { amount: 700, label: 'Grand verre' }
     },
-    images: ['jus.jpeg', 'jus2.jpeg'],
+    images: ['jus.jpeg', 'jus-cocktail.jpeg'],
     spiciness: 0,
     preparationTime: '5 min',
     rating: 4.6,
@@ -329,7 +329,7 @@ export const menuData: MenuItem[] = [
       medium: { amount: 600, label: 'Verre moyen' },
       large: { amount: 800, label: 'Grand verre' }
     },
-    images: ['jusnew.jpeg'],
+    images: ['jus-new.jpeg'],
     spiciness: 0,
     preparationTime: '3 min',
     rating: 4.5,
@@ -349,7 +349,7 @@ export const menuData: MenuItem[] = [
       medium: { amount: 750, label: 'Verre moyen' },
       large: { amount: 1000, label: 'Grand verre' }
     },
-    images: ['cocktail.jpeg', 'cocktail2.jpeg'],
+    images: ['jus-cocktail.jpeg', 'jus-cocktail2.jpeg'],
     spiciness: 0,
     preparationTime: '5 min',
     rating: 4.8,
@@ -370,7 +370,7 @@ export const menuData: MenuItem[] = [
       medium: { amount: 650, label: 'Verre moyen' },
       large: { amount: 850, label: 'Grand verre' }
     },
-    images: ['baoba.jpeg', 'baoba2.jpeg'],
+    images: ['jus-baoba2.jpeg'],
     spiciness: 0,
     preparationTime: '4 min',
     rating: 4.3,
@@ -410,7 +410,7 @@ export const menuData: MenuItem[] = [
       medium: { amount: 550, label: 'Verre moyen' },
       large: { amount: 750, label: 'Grand verre' }
     },
-    images: ['folere.jpeg'],
+    images: ['jus-folere.jpeg'],
     spiciness: 3,
     preparationTime: '4 min',
     rating: 4.6,
@@ -451,7 +451,7 @@ export const menuData: MenuItem[] = [
       medium: { amount: 1200, label: '3 œufs' },
       large: { amount: 1600, label: '4 œufs avec légumes' }
     },
-    images: ['painavant.jpeg'],
+    images: ['pain panini.jpeg'],
     spiciness: 2,
     preparationTime: '10-15 min',
     rating: 4.3,
@@ -471,7 +471,7 @@ export const menuData: MenuItem[] = [
       medium: { amount: 350, label: '2 pains' },
       large: { amount: 500, label: '3 pains' }
     },
-    images: ['pain3.jpeg'],
+    images: ['pain panini.jpeg'],
     spiciness: 0,
     preparationTime: '5 min',
     rating: 4.6,
@@ -531,7 +531,7 @@ export const menuData: MenuItem[] = [
       medium: { amount: 500, label: 'Bol moyen' },
       large: { amount: 700, label: 'Grand bol' }
     },
-    images: ['mague.jpeg'],
+    images: ['jus de mague.jpeg'],
     spiciness: 0,
     preparationTime: '6 min',
     rating: 4.2,
@@ -572,7 +572,7 @@ export const menuData: MenuItem[] = [
       medium: { amount: 2300, label: 'Portion normale' },
       large: { amount: 3000, label: 'Grande portion' }
     },
-    images: ['mague.jpeg'],
+    images: ['jus de mague.jpeg'],
     spiciness: 3,
     preparationTime: '30 min',
     rating: 4.3,
@@ -613,7 +613,7 @@ export const menuData: MenuItem[] = [
       medium: { amount: 2800, label: 'Portion normale' },
       large: { amount: 3500, label: 'Grande portion' }
     },
-    images: ['caro.jpeg', 'caro2.jpeg', 'caro3.jpeg'],
+    images: ['admin-carol.jpeg', 'admin-caro2.jpeg', 'admin-caro3.jpeg'],
     spiciness: 3,
     preparationTime: '35 min',
     rating: 4.9,
