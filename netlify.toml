@@ -5,19 +5,21 @@
 ##############################################################################
 
 [build]
-  # Build command for Vite React app
-  command = "npm run build"
+  # Build command for Vite React app with explicit dependency installation
+  command = "npm ci --include=dev && npm run build"
   
   # Directory with build output (Vite default)
   publish = "dist"
   
   # Environment variables for build
   [build.environment]
-    NODE_VERSION = "18"
-    NPM_VERSION = "9"
+    NODE_VERSION = "18.17.0"
+    NPM_VERSION = "9.6.7"
     VITE_WHATSAPP_NUMBER = "237699808260"
     VITE_BUSINESS_NAME = "BueaDelights"
     VITE_SITE_URL = "https://bueadelights.com"
+    NODE_ENV = "production"
+    VITE_ENVIRONMENT = "production"
 
 ##############################################################################
 # REDIRECTS & REWRITES
@@ -184,21 +186,21 @@
 
 # Production environment
 [context.production]
-  command = "npm run build"
+  command = "npm ci --include=dev && npm run build"
   [context.production.environment]
     NODE_ENV = "production"
     VITE_ENVIRONMENT = "production"
 
 # Preview deployments (pull requests)
 [context.deploy-preview]
-  command = "npm run build"
+  command = "npm ci --include=dev && npm run build"
   [context.deploy-preview.environment]
     NODE_ENV = "development"
     VITE_ENVIRONMENT = "preview"
 
 # Branch deployments
 [context.branch-deploy]
-  command = "npm run build"
+  command = "npm ci --include=dev && npm run build"
   [context.branch-deploy.environment]
     NODE_ENV = "development"
     VITE_ENVIRONMENT = "development"
