@@ -10,6 +10,10 @@ import { CURRENCY, DELIVERY_ZONES, BUSINESS_INFO } from '@/constants';
 const CartPage: React.FC = () => {
   const { items, total, itemCount, updateQuantity, removeItem, clearCart } = useCart();
   const { t } = useLanguage();
+  
+  // Ensure translations are loaded
+  const cartTitle = t('cart.title') || 'Cart';
+  const cartDescription = t('cart.empty_description') || 'Complete your order of authentic Cameroonian cuisine';
   const [selectedZone, setSelectedZone] = useState<string>('');
   const [customerInfo, setCustomerInfo] = useState({
     name: '',
@@ -100,8 +104,8 @@ const CartPage: React.FC = () => {
     return (
       <>
         <Helmet>
-          <title>{t('cart.title')} - BueaDelights</title>
-          <meta name="description" content={t('cart.empty_description')} />
+          <title>{cartTitle} - BueaDelights</title>
+          <meta name="description" content={cartDescription} />
         </Helmet>
 
         <div className="min-h-screen bg-gray-50 pt-20">
@@ -135,8 +139,8 @@ const CartPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>{t('cart.title')} ({itemCount || 0}) - BueaDelights</title>
-        <meta name="description" content={t('cart.empty_description')} />
+        <title>{cartTitle} ({itemCount || 0}) - BueaDelights</title>
+        <meta name="description" content={cartDescription} />
       </Helmet>
 
       <div className="min-h-screen bg-gray-50 pt-20">
