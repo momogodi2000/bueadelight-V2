@@ -34,71 +34,74 @@ const CartPage: React.FC = () => {
   const generateWhatsAppMessage = () => {
     if (items.length === 0) return '';
 
-    let message = `🍽️ *NOUVELLE COMMANDE BUEADELIGHTS*\n\n`;
-    message += `👤 *Client:* ${customerInfo.name}\n`;
-    message += `📱 *Téléphone:* ${customerInfo.phone}\n`;
+    let message = `🍽️ *${t('cart.new_order')}*\n\n`;
+    message += `👤 *${t('cart.client')}:* ${customerInfo.name}\n`;
+    message += `📱 *${t('cart.telephone')}:* ${customerInfo.phone}\n`;
     
     if (selectedDeliveryZone) {
-      message += `📍 *Zone de livraison:* ${selectedDeliveryZone.name}\n`;
-      message += `⏱️ *Temps estimé:* ${selectedDeliveryZone.estimatedTime}\n`;
+      message += `📍 *${t('cart.delivery_zone_label')}:* ${selectedDeliveryZone.name}\n`;
+      message += `⏱️ *${t('cart.estimated_time')}:* ${selectedDeliveryZone.estimatedTime}\n`;
     }
     
     if (customerInfo.address) {
-      message += `🏠 *Adresse:* ${customerInfo.address}\n`;
+      message += `🏠 *${t('cart.address')}:* ${customerInfo.address}\n`;
     }
     
-    message += `\n📝 *DÉTAILS DE LA COMMANDE:*\n\n`;
+    message += `\n📝 *${t('cart.order_details')}:*\n\n`;
     
     items.forEach((item, index) => {
       message += `${index + 1}. *${item.name}*\n`;
-      message += `   • Taille: ${item.size}\n`;
-      message += `   • Quantité: ${item.quantity}\n`;
-      message += `   • Prix unitaire: ${item.price} FCFA\n`;
-      message += `   • Sous-total: ${item.price * item.quantity} FCFA\n\n`;
+      message += `   • ${t('cart.size')}: ${t(`menu.size_${item.size}`)}\n`;
+      message += `   • ${t('common.quantity')}: ${item.quantity}\n`;
+      message += `   • ${t('cart.unit_price')}: ${item.price.toLocaleString()} ${CURRENCY.symbol}\n`;
+      message += `   • ${t('cart.subtotal_item')}: ${(item.price * item.quantity).toLocaleString()} ${CURRENCY.symbol}\n\n`;
     });
     
-    message += `💰 *RÉSUMÉ FINANCIER:*\n`;
-    message += `• Sous-total plats: ${total} FCFA\n`;
-    message += `• Frais de livraison: ${deliveryFee} FCFA\n`;
-    message += `• *TOTAL: ${grandTotal} FCFA*\n\n`;
+    message += `💰 *${t('cart.financial_summary')}:*\n`;
+    message += `• ${t('cart.subtotal_items')}: ${total.toLocaleString()} ${CURRENCY.symbol}\n`;
+    message += `• ${t('common.delivery_fee')}: ${deliveryFee.toLocaleString()} ${CURRENCY.symbol}\n`;
+    message += `• *${t('common.total').toUpperCase()}: ${grandTotal.toLocaleString()} ${CURRENCY.symbol}*\n\n`;
     
     if (customerInfo.notes) {
-      message += `📋 *Notes spéciales:*\n${customerInfo.notes}\n\n`;
+      message += `📋 *${t('cart.special_notes')}:*\n${customerInfo.notes}\n\n`;
     }
     
-    message += `🕐 Commande passée le ${new Date().toLocaleString('fr-FR')}\n\n`;
-    message += `Merci de confirmer cette commande et le délai de livraison. 🙏`;
+    message += `🕐 ${t('cart.order_placed_on')} ${new Date().toLocaleString()}\n\n`;
+    message += `${t('cart.confirm_order')}. 🙏`;
     
     return encodeURIComponent(message);
   };
 
   const handleWhatsAppOrder = () => {
     if (items.length === 0) {
-      alert('Votre panier est vide');
+      alert(t('cart.validation_empty'));
       return;
     }
     
     if (!customerInfo.name || !customerInfo.phone) {
-      alert('Veuillez remplir votre nom et numéro de téléphone');
+      alert(t('cart.validation_name_phone'));
       return;
     }
     
     if (!selectedZone) {
-      alert('Veuillez sélectionner une zone de livraison');
+      alert(t('cart.validation_delivery_zone'));
       return;
     }
 
     const message = generateWhatsAppMessage();
     const whatsappUrl = `https://wa.me/${BUSINESS_INFO.whatsappNumberFormatted}?text=${message}`;
     window.open(whatsappUrl, '_blank');
+    
+    // Show success message
+    alert(t('success.order_placed'));
   };
 
   if (items.length === 0) {
     return (
       <>
         <Helmet>
-          <title>Panier - BueaDelights</title>
-          <meta name="description" content="Votre panier de commande BueaDelights" />
+          <title>{t('cart.title')} - BueaDelights</title>
+          <meta name="description" content={t('cart.empty_description')} />
         </Helmet>
 
         <div className="min-h-screen bg-gray-50 pt-20">
@@ -132,8 +135,8 @@ const CartPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Panier ({itemCount || 0}) - BueaDelights</title>
-        <meta name="description" content="Finalisez votre commande de cuisine camerounaise authentique" />
+        <title>{t('cart.title')} ({itemCount || 0}) - BueaDelights</title>
+        <meta name="description" content={t('cart.empty_description')} />
       </Helmet>
 
       <div className="min-h-screen bg-gray-50 pt-20">
@@ -183,9 +186,9 @@ const CartPage: React.FC = () => {
                     {/* Details */}
                     <div className="flex-1">
                       <h3 className="font-semibold text-lg text-gray-900">{item.name}</h3>
-                      <p className="text-gray-600 capitalize">{item.size}</p>
+                      <p className="text-gray-600 capitalize">{t(`menu.size_${item.size}`)}</p>
                       <div className="text-lg font-bold text-forest-600">
-                        {item.price} {CURRENCY.symbol}
+                        {item.price.toLocaleString()} {CURRENCY.symbol}
                       </div>
                     </div>
                     
@@ -222,31 +225,31 @@ const CartPage: React.FC = () => {
             <div className="space-y-6">
               {/* Customer Information */}
               <div className="bg-white rounded-xl shadow-sm p-6">
-                <h3 className="text-lg font-semibold mb-4">Informations Client</h3>
+                <h3 className="text-lg font-semibold mb-4">{t('cart.customer_info')}</h3>
                 <div className="space-y-4">
                   <input
                     type="text"
-                    placeholder="Votre nom complet"
+                    placeholder={t('cart.full_name')}
                     value={customerInfo.name}
                     onChange={(e) => setCustomerInfo(prev => ({ ...prev, name: e.target.value }))}
                     className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-forest-500 focus:border-transparent"
                   />
                   <input
                     type="tel"
-                    placeholder="Numéro de téléphone"
+                    placeholder={t('cart.phone_number')}
                     value={customerInfo.phone}
                     onChange={(e) => setCustomerInfo(prev => ({ ...prev, phone: e.target.value }))}
                     className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-forest-500 focus:border-transparent"
                   />
                   <input
                     type="text"
-                    placeholder="Adresse de livraison (optionnel)"
+                    placeholder={t('cart.delivery_address')}
                     value={customerInfo.address}
                     onChange={(e) => setCustomerInfo(prev => ({ ...prev, address: e.target.value }))}
                     className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-forest-500 focus:border-transparent"
                   />
                   <textarea
-                    placeholder="Instructions spéciales (optionnel)"
+                    placeholder={t('cart.special_instructions')}
                     value={customerInfo.notes}
                     onChange={(e) => setCustomerInfo(prev => ({ ...prev, notes: e.target.value }))}
                     rows={3}
@@ -257,7 +260,7 @@ const CartPage: React.FC = () => {
 
               {/* Delivery Zone Selection */}
               <div className="bg-white rounded-xl shadow-sm p-6">
-                <h3 className="text-lg font-semibold mb-4">Zone de Livraison</h3>
+                <h3 className="text-lg font-semibold mb-4">{t('cart.delivery_zone')}</h3>
                 <div className="space-y-3">
                   {deliveryZones.map((zone) => (
                     <label
@@ -282,7 +285,7 @@ const CartPage: React.FC = () => {
                           <div className="text-sm text-gray-600">{zone.estimatedTime}</div>
                         </div>
                         <div className="text-right">
-                          <div className="font-semibold">{zone.fee} {CURRENCY.symbol}</div>
+                          <div className="font-semibold">{zone.fee.toLocaleString()} {CURRENCY.symbol}</div>
                         </div>
                       </div>
                     </label>
@@ -292,20 +295,20 @@ const CartPage: React.FC = () => {
 
               {/* Order Summary */}
               <div className="bg-white rounded-xl shadow-sm p-6">
-                <h3 className="text-lg font-semibold mb-4">Résumé de Commande</h3>
+                <h3 className="text-lg font-semibold mb-4">{t('cart.order_summary')}</h3>
                 <div className="space-y-3">
                   <div className="flex justify-between">
                     <span>{t('common.subtotal')}</span>
-                    <span>{total} {CURRENCY.symbol}</span>
+                    <span>{total.toLocaleString()} {CURRENCY.symbol}</span>
                   </div>
                   <div className="flex justify-between">
                     <span>{t('common.delivery_fee')}</span>
-                    <span>{deliveryFee} {CURRENCY.symbol}</span>
+                    <span>{deliveryFee.toLocaleString()} {CURRENCY.symbol}</span>
                   </div>
                   <div className="border-t pt-3">
                     <div className="flex justify-between font-bold text-lg">
                       <span>{t('common.total')}</span>
-                      <span>{grandTotal} {CURRENCY.symbol}</span>
+                      <span>{grandTotal.toLocaleString()} {CURRENCY.symbol}</span>
                     </div>
                   </div>
                 </div>

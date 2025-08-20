@@ -12,6 +12,7 @@ import ScrollToTop from '@/components/common/ScrollToTop'
 import HomePage from '@/pages/HomePage'
 import MenuPage from '@/pages/MenuPage'
 import AboutPage from '@/pages/AboutPage'
+import ServicesPage from '@/pages/ServicesPage'
 import DeliveryPage from '@/pages/DeliveryPage'
 import ContactPage from '@/pages/ContactPage'
 import ReviewsPage from '@/pages/ReviewsPage'
@@ -152,6 +153,20 @@ function App() {
                           transition={{ duration: 0.3 }}
                         >
                           <AboutPage />
+                        </motion.div>
+                      } 
+                    />
+                    
+                    <Route 
+                      path="/services" 
+                      element={
+                        <motion.div
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -20 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          <ServicesPage />
                         </motion.div>
                       } 
                     />

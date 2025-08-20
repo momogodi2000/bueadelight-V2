@@ -25,6 +25,7 @@ const Footer: React.FC = () => {
     { name: t('nav.home'), href: '/' },
     { name: t('nav.menu'), href: '/menu' },
     { name: t('nav.about'), href: '/about' },
+    { name: t('services.title'), href: '/services' },
     { name: t('nav.delivery'), href: '/delivery' },
     { name: t('nav.reviews'), href: '/reviews' },
     { name: t('nav.contact'), href: '/contact' }

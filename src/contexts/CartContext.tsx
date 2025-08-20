@@ -14,6 +14,8 @@ interface CartContextType extends CartState {
   updateQuantity: (id: string, size: 'small' | 'medium' | 'large', quantity: number) => void;
   clearCart: () => void;
   getItemQuantity: (id: string, size: 'small' | 'medium' | 'large') => number;
+  getCartSummary: () => { items: number; total: number; formattedTotal: string };
+  getTotalWithDelivery: (deliveryFee: number) => number;
 }
 
 type CartAction =
@@ -130,6 +132,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
   const addItem = (item: MenuItem, size: 'small' | 'medium' | 'large', quantity = 1) => {
     dispatch({ type: 'ADD_ITEM', payload: { item, size, quantity } });
+    // Could add toast notification here in future
   };
 
   const removeItem = (id: string, size: 'small' | 'medium' | 'large') => {
@@ -149,13 +152,27 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     return item ? item.quantity : 0;
   };
 
+  const getCartSummary = () => {
+    return {
+      items: state.itemCount,
+      total: state.total,
+      formattedTotal: state.total.toLocaleString()
+    };
+  };
+
+  const getTotalWithDelivery = (deliveryFee: number) => {
+    return state.total + deliveryFee;
+  };
+
   const value: CartContextType = {
     ...state,
     addItem,
     removeItem,
     updateQuantity,
     clearCart,
-    getItemQuantity
+    getItemQuantity,
+    getCartSummary,
+    getTotalWithDelivery
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
