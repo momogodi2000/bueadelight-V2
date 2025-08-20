@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 // Utils and Constants
 import { BUSINESS_INFO, BUSINESS_STATS } from '@/constants';
 import { getWhatsAppContactURL } from '@/utils';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 /**
  * Hero Section Component
@@ -19,6 +20,7 @@ import { getWhatsAppContactURL } from '@/utils';
 const HeroSection: React.FC = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const { t } = useLanguage();
 
   const handleVideoToggle = () => {
     const video = document.getElementById('hero-video') as HTMLVideoElement;
@@ -41,27 +43,27 @@ const HeroSection: React.FC = () => {
     {
       icon: Users,
       value: BUSINESS_STATS.customersServed,
-      label: 'Clients Satisfaits',
+      label: t('hero.customers_satisfied'),
       suffix: '+'
     },
     {
       icon: Star,
       value: BUSINESS_STATS.averageRating,
-      label: 'Note Moyenne',
+      label: t('hero.average_rating'),
       suffix: '/5',
       decimal: true
     },
     {
       icon: Award,
       value: BUSINESS_STATS.yearsInBusiness,
-      label: 'Années d\'Excellence',
-      suffix: ' ans'
+      label: t('hero.years_excellence'),
+      suffix: ` ${t('hero.years')}`
     },
     {
       icon: Clock,
       value: 30,
-      label: 'Minutes de Livraison',
-      suffix: ' min'
+      label: t('hero.delivery_time'),
+      suffix: ` ${t('hero.minutes')}`
     }
   ];
 
@@ -141,9 +143,7 @@ const HeroSection: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
             >
-              Découvrez l'authenticité de la cuisine camerounaise avec nos plats traditionnels 
-              préparés avec amour par <span className="text-golden-300 font-semibold">Caroline Folefack Viviane</span> 
-              depuis 2020 à Buea.
+              {t('hero.discover_authentic')} <span className="text-golden-300 font-semibold">{BUSINESS_INFO.founder}</span> {t('hero.since_2020')}.
             </motion.p>
           </div>
 
@@ -160,7 +160,7 @@ const HeroSection: React.FC = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span>Commander via WhatsApp</span>
+              <span>{t('hero.order_whatsapp')}</span>
               <ArrowRight 
                 size={20} 
                 className="group-hover:translate-x-1 transition-transform duration-300" 
@@ -173,7 +173,7 @@ const HeroSection: React.FC = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <span>Voir le Menu</span>
+                <span>{t('hero.view_menu')}</span>
                 <ArrowRight size={20} />
               </motion.button>
             </Link>
@@ -238,7 +238,7 @@ const HeroSection: React.FC = () => {
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
               />
             </motion.div>
-            <p className="text-xs text-gray-300 mt-2 font-medium">Scroll down</p>
+            <p className="text-xs text-gray-300 mt-2 font-medium">{t('hero.scroll_down')}</p>
           </motion.div>
         </motion.div>
       </div>

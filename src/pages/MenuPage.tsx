@@ -106,10 +106,10 @@ const MenuPage: React.FC = () => {
               item.badge === 'spicy' ? 'bg-red-500' :
               'bg-purple-500'
             }`}>
-              {item.badge === 'popular' ? 'Populaire' :
-               item.badge === 'new' ? 'Nouveau' :
-               item.badge === 'spicy' ? 'Épicé' :
-               'Spécialité'}
+              {item.badge === 'popular' ? t('badges.popular') :
+               item.badge === 'new' ? t('badges.new') :
+               item.badge === 'spicy' ? t('badges.spicy') :
+               t('badges.house_special')}
             </div>
           )}
           
@@ -213,7 +213,7 @@ const MenuPage: React.FC = () => {
               onClick={() => setSelectedItemId(isExpanded ? null : item.id)}
               className="text-forest-600 text-sm font-medium hover:text-forest-700"
             >
-              {isExpanded ? 'Moins' : 'Plus'}
+              {isExpanded ? t('menu.less') : t('menu.more')}
             </button>
           </div>
 
@@ -226,7 +226,7 @@ const MenuPage: React.FC = () => {
                 exit={{ height: 0, opacity: 0 }}
                 className="mt-4 pt-4 border-t border-gray-200"
               >
-                <h4 className="font-semibold mb-2">Ingrédients:</h4>
+                <h4 className="font-semibold mb-2">{t('menu.ingredients')}:</h4>
                 <div className="flex flex-wrap gap-1 mb-3">
                   {item.ingredients.map((ingredient, index) => (
                     <span
@@ -240,7 +240,7 @@ const MenuPage: React.FC = () => {
                 
                 {item.allergens.length > 0 && (
                   <>
-                    <h4 className="font-semibold mb-2">Allergènes:</h4>
+                    <h4 className="font-semibold mb-2">{t('menu.allergens')}:</h4>
                     <div className="flex flex-wrap gap-1">
                       {item.allergens.map((allergen, index) => (
                         <span
@@ -329,7 +329,7 @@ const MenuPage: React.FC = () => {
                         : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                     }`}
                   >
-                    {category.icon} {category.name}
+                    {category.icon} {t(`category.${key}`)}
                   </button>
                 ))}
               </div>
@@ -344,14 +344,14 @@ const MenuPage: React.FC = () => {
                   onChange={(e) => setSortBy(e.target.value as any)}
                   className="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-forest-500 focus:border-transparent"
                 >
-                  <option value="popular">Populaires</option>
-                  <option value="name">Nom A-Z</option>
-                  <option value="price">Prix croissant</option>
-                  <option value="rating">Mieux notés</option>
+                  <option value="popular">{t('menu.sort_popular')}</option>
+                  <option value="name">{t('menu.sort_name')}</option>
+                  <option value="price">{t('menu.sort_price')}</option>
+                  <option value="rating">{t('menu.sort_rating')}</option>
                 </select>
               </div>
               <div className="text-sm text-gray-600">
-                {filteredItems.length} plat{filteredItems.length > 1 ? 's' : ''} trouvé{filteredItems.length > 1 ? 's' : ''}
+                {t('menu.items_found', { count: filteredItems.length, plural: filteredItems.length > 1 ? 's' : '' })}
               </div>
             </div>
           </div>
@@ -370,10 +370,10 @@ const MenuPage: React.FC = () => {
                 <Search size={80} />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                Aucun plat trouvé
+                {t('menu.no_results')}
               </h3>
               <p className="text-gray-600">
-                Essayez de modifier vos critères de recherche
+                {t('menu.try_different_search')}
               </p>
             </div>
           )}

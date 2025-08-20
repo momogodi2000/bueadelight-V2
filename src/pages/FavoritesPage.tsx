@@ -69,7 +69,7 @@ const FavoritesPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Mes Favoris ({favoriteItems.length}) - BueaDelights</title>
+        <title>Mes Favoris ({favoriteItems.length || 0}) - BueaDelights</title>
         <meta name="description" content="Vos plats camerounais favoris sauvegardés" />
       </Helmet>
 

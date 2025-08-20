@@ -132,7 +132,7 @@ const CartPage: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Panier ({itemCount}) - BueaDelights</title>
+        <title>Panier ({itemCount || 0}) - BueaDelights</title>
         <meta name="description" content="Finalisez votre commande de cuisine camerounaise authentique" />
       </Helmet>
 

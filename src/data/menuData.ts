@@ -640,6 +640,109 @@ export const menuData: MenuItem[] = [
     rating: 4.5,
     reviewCount: 187,
     availability: true
+  },
+
+  // ADDITIONAL MENU ITEMS TO USE MORE IMAGES
+  {
+    id: 'brioche_001',
+    name: 'Brioche Maison',
+    category: 'breakfast',
+    description: 'Freshly baked homemade brioche, soft and buttery',
+    ingredients: ['Farine', 'Beurre', 'Œufs', 'Lait', 'Sucre', 'Levure', 'Sel'],
+    allergens: ['Gluten', 'Œufs', 'Lait'],
+    prices: {
+      small: { amount: 300, label: '1 brioche' },
+      medium: { amount: 500, label: '2 brioches' },
+      large: { amount: 700, label: '3 brioches' }
+    },
+    images: ['brioche-maison.jpeg'],
+    spiciness: 0,
+    preparationTime: '5 min',
+    rating: 4.7,
+    reviewCount: 156,
+    availability: true,
+    badge: 'popular'
+  },
+
+  {
+    id: 'ananas_juice_001',
+    name: 'Jus d\'Ananas Frais',
+    category: 'drinks',
+    description: 'Fresh pineapple juice, naturally sweet and refreshing',
+    ingredients: ['Ananas frais', 'Gingembre', 'Menthe', 'Citron vert'],
+    allergens: [],
+    prices: {
+      small: { amount: 400, label: 'Petit verre' },
+      medium: { amount: 600, label: 'Verre moyen' },
+      large: { amount: 800, label: 'Grand verre' }
+    },
+    images: ['jus-new.jpeg'],
+    spiciness: 0,
+    preparationTime: '3 min',
+    rating: 4.5,
+    reviewCount: 189,
+    availability: true
+  },
+
+  {
+    id: 'baoba_juice_001',
+    name: 'Jus de Baobab',
+    category: 'drinks',
+    description: 'Traditional African superfruit drink, rich in vitamin C and antioxidants',
+    ingredients: ['Pulpe de baobab', 'Lait', 'Sucre', 'Vanille', 'Gingembre'],
+    allergens: ['Lait'],
+    prices: {
+      small: { amount: 450, label: 'Petit verre' },
+      medium: { amount: 650, label: 'Verre moyen' },
+      large: { amount: 850, label: 'Grand verre' }
+    },
+    images: ['jus-baoba2.jpeg'],
+    spiciness: 0,
+    preparationTime: '4 min',
+    rating: 4.3,
+    reviewCount: 156,
+    availability: true
+  },
+
+  {
+    id: 'folere_juice_001',
+    name: 'Folëré (Jus de Gingembre)',
+    category: 'drinks',
+    description: 'Traditional spicy ginger drink, perfect for digestion and energy',
+    ingredients: ['Gingembre frais', 'Citron', 'Miel', 'Piment doux', 'Menthe'],
+    allergens: [],
+    prices: {
+      small: { amount: 350, label: 'Petit verre' },
+      medium: { amount: 550, label: 'Verre moyen' },
+      large: { amount: 750, label: 'Grand verre' }
+    },
+    images: ['jus-folere.jpeg'],
+    spiciness: 3,
+    preparationTime: '4 min',
+    rating: 4.6,
+    reviewCount: 198,
+    availability: true
+  },
+
+  {
+    id: 'plantain_chips_001',
+    name: 'Chips de Plantain',
+    category: 'snacks',
+    description: 'Crispy plantain chips, traditional Cameroonian snack',
+    ingredients: ['Plantains verts', 'Huile végétale', 'Sel', 'Épices'],
+    allergens: [],
+    prices: {
+      small: { amount: 300, label: 'Petit sachet' },
+      medium: { amount: 500, label: 'Sachet moyen' },
+      large: { amount: 800, label: 'Grand sachet' }
+    },
+    images: ['Chips de plantain.jpeg'],
+    spiciness: 1,
+    preparationTime: '15 min',
+    rating: 4.7,
+    reviewCount: 298,
+    availability: true,
+    badge: 'popular'
   }
 ];
 

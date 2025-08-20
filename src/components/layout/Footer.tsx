@@ -31,19 +31,19 @@ const Footer: React.FC = () => {
   ];
 
   const menuCategories = [
-    { name: 'Plats Traditionnels', href: '/menu?category=traditional' },
-    { name: 'Riz & Accompagnements', href: '/menu?category=rice' },
-    { name: 'Grillades', href: '/menu?category=grilled' },
-    { name: 'Collations', href: '/menu?category=snacks' },
-    { name: 'Boissons', href: '/menu?category=drinks' },
-    { name: 'Petit Déjeuner', href: '/menu?category=breakfast' }
+    { name: t('category.traditional'), href: '/menu?category=traditional' },
+    { name: t('category.rice'), href: '/menu?category=rice' },
+    { name: t('category.grilled'), href: '/menu?category=grilled' },
+    { name: t('category.snacks'), href: '/menu?category=snacks' },
+    { name: t('category.drinks'), href: '/menu?category=drinks' },
+    { name: t('category.breakfast'), href: '/menu?category=breakfast' }
   ];
 
   const legalLinks = [
-    { name: 'Politique de Confidentialité', href: '/privacy' },
-    { name: 'Conditions d\'Utilisation', href: '/terms' },
-    { name: 'FAQ', href: '/faq' },
-    { name: 'Support Client', href: '/support' }
+    { name: t('footer.privacy_policy'), href: '/privacy' },
+    { name: t('footer.terms_of_use'), href: '/terms' },
+    { name: t('nav.faq'), href: '/faq' },
+    { name: t('footer.customer_support'), href: '/support' }
   ];
 
   return (
@@ -60,24 +60,24 @@ const Footer: React.FC = () => {
               viewport={{ once: true }}
             >
               <h3 className="text-2xl lg:text-3xl font-display font-bold mb-4 text-golden-400">
-                Restez connectés aux saveurs
+                {t('newsletter.title')}
               </h3>
               <p className="text-forest-100 mb-6 text-lg">
-                Recevez nos nouveaux plats, promotions exclusives et actualités culinaires camerounaises
+                {t('newsletter.description')}
               </p>
               
               {/* Newsletter Form */}
               <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
                 <input
                   type="email"
-                  placeholder="Votre adresse email..."
+                  placeholder={t('newsletter.email_placeholder')}
                   className="flex-1 px-4 py-3 rounded-lg bg-white/10 border border-forest-500/30 text-white placeholder-forest-200 focus:outline-none focus:ring-2 focus:ring-golden-400 focus:border-transparent"
                 />
                 <button
                   type="submit"
                   className="px-6 py-3 bg-golden-500 text-forest-900 font-semibold rounded-lg hover:bg-golden-400 transition-colors duration-300"
                 >
-                  S'abonner
+                  {t('newsletter.subscribe')}
                 </button>
               </form>
             </motion.div>
@@ -101,7 +101,7 @@ const Footer: React.FC = () => {
               <div className="flex items-center space-x-3 mb-6">
                 <div className="relative">
                   <img 
-                    src="/logo_caroline_bby.png" 
+                    src="/logo/logo_caroline_bby.png" 
                     alt="BueaDelights Logo" 
                     className="h-12 w-12 object-contain"
                   />
@@ -116,19 +116,18 @@ const Footer: React.FC = () => {
               </div>
 
               <p className="text-forest-100 mb-6 leading-relaxed">
-                Depuis 2020, nous préservons et partageons l'authenticité de la cuisine camerounaise. 
-                Chaque plat raconte l'histoire de nos traditions culinaires.
+                {t('footer.description')}
               </p>
 
               {/* Stats */}
               <div className="grid grid-cols-2 gap-4 mb-6">
                 <div className="text-center p-3 bg-forest-600/30 rounded-lg">
                   <div className="text-xl font-bold text-golden-400">{BUSINESS_STATS.totalCustomers}+</div>
-                  <div className="text-xs text-forest-200">Clients Satisfaits</div>
+                  <div className="text-xs text-forest-200">{t('hero.customers_satisfied')}</div>
                 </div>
                 <div className="text-center p-3 bg-forest-600/30 rounded-lg">
                   <div className="text-xl font-bold text-golden-400">{BUSINESS_STATS.averageRating}</div>
-                  <div className="text-xs text-forest-200">Note Moyenne ⭐</div>
+                  <div className="text-xs text-forest-200">{t('hero.average_rating')} ⭐</div>
                 </div>
               </div>
 
@@ -175,7 +174,7 @@ const Footer: React.FC = () => {
             >
               <h4 className="text-lg font-semibold text-golden-400 mb-6 flex items-center">
                 <ChefHat className="w-5 h-5 mr-2" />
-                Navigation
+                {t('footer.navigation')}
               </h4>
               <ul className="space-y-3">
                 {quickLinks.map((link) => (
@@ -203,7 +202,7 @@ const Footer: React.FC = () => {
             >
               <h4 className="text-lg font-semibold text-golden-400 mb-6 flex items-center">
                 <Heart className="w-5 h-5 mr-2" />
-                Nos Spécialités
+                {t('footer.specialties')}
               </h4>
               <ul className="space-y-3">
                 {menuCategories.map((category) => (
@@ -231,7 +230,7 @@ const Footer: React.FC = () => {
             >
               <h4 className="text-lg font-semibold text-golden-400 mb-6 flex items-center">
                 <Truck className="w-5 h-5 mr-2" />
-                Contact & Livraison
+                {t('footer.contact_delivery')}
               </h4>
               
               <div className="space-y-4">
@@ -243,7 +242,7 @@ const Footer: React.FC = () => {
                   <Phone className="w-5 h-5 mr-3 text-golden-400 group-hover:scale-110 transition-transform duration-300" />
                   <div>
                     <div className="font-semibold">+237 6 99 80 82 60</div>
-                    <div className="text-sm text-forest-300">Commandes WhatsApp</div>
+                    <div className="text-sm text-forest-300">{t('footer.whatsapp_orders')}</div>
                   </div>
                 </a>
 
@@ -255,7 +254,7 @@ const Footer: React.FC = () => {
                   <Mail className="w-5 h-5 mr-3 text-golden-400 group-hover:scale-110 transition-transform duration-300" />
                   <div>
                     <div className="font-semibold">info@bueadelights.com</div>
-                    <div className="text-sm text-forest-300">Support Client</div>
+                    <div className="text-sm text-forest-300">{t('footer.customer_support')}</div>
                   </div>
                 </a>
 
@@ -273,7 +272,7 @@ const Footer: React.FC = () => {
                   <Clock className="w-5 h-5 mr-3 text-golden-400" />
                   <div>
                     <div className="font-semibold">Lun - Dim: 8h00 - 22h00</div>
-                    <div className="text-sm text-forest-300">Service continu</div>
+                    <div className="text-sm text-forest-300">{t('footer.continuous_service')}</div>
                   </div>
                 </div>
               </div>
@@ -287,7 +286,7 @@ const Footer: React.FC = () => {
                   className="inline-flex items-center space-x-2 bg-green-600 hover:bg-green-500 text-white px-4 py-2 rounded-lg transition-colors duration-300 text-sm font-semibold animate-pulse"
                 >
                   <MessageCircle className="w-4 h-4" />
-                  <span>Commander Maintenant</span>
+                  <span>{t('footer.order_now')}</span>
                 </a>
               </div>
             </motion.div>
@@ -303,11 +302,10 @@ const Footer: React.FC = () => {
             {/* Copyright */}
             <div className="text-center md:text-left">
               <p className="text-forest-200 text-sm">
-                © {currentYear} <span className="text-golden-400 font-semibold">BueaDelights</span>. 
-                Tous droits réservés. Créé avec ❤️ pour la cuisine camerounaise.
+                {t('footer.copyright').replace('{year}', currentYear.toString())} {t('footer.created_with_love')}
               </p>
               <p className="text-forest-300 text-xs mt-1">
-                Fondé par Caroline Folefack Viviane - Authentic Cameroonian Cuisine Since 2020
+                {t('footer.founded_by')} {BUSINESS_INFO.founder} - {t('footer.authentic_since')}
               </p>
             </div>
 
@@ -331,9 +329,9 @@ const Footer: React.FC = () => {
       <div className="bg-forest-900 py-3">
         <div className="section-container">
           <p className="text-center text-forest-400 text-xs">
-            Built with ❤️ by <span className="text-golden-500 font-semibold">ING MOMO GODI YVAN</span> • React + Vite + TypeScript + Tailwind CSS
+            {t('footer.built_by')} <span className="text-golden-500 font-semibold">ING MOMO GODI YVAN</span> • {t('footer.tech_stack')}
             <br />
-            <span className="text-golden-500">Local Flavors at Your Fingertips</span> 🍽️
+            <span className="text-golden-500">{BUSINESS_INFO.slogan}</span> 🍽️
           </p>
         </div>
       </div>

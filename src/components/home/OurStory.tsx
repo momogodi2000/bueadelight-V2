@@ -12,6 +12,7 @@ import {
   Coffee,
   Home
 } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 /**
  * Our Story Section Component
@@ -24,23 +25,24 @@ import {
  * - Cultural heritage emphasis
  */
 const OurStory: React.FC = () => {
+  const { t } = useLanguage();
   const story = {
     founder: {
       name: 'Caroline Folefack Viviane',
-      title: 'Fondatrice & Chef Exécutive',
+      title: t('about.founder_title'),
       image: '/avatars/girls.jpeg',
-      quote: "La cuisine camerounaise est un art qui se transmet de cœur à cœur. Chaque plat raconte une histoire, chaque épice porte nos traditions.",
-      background: "Passionnée de cuisine depuis l'enfance à Buea, Caroline a appris les secrets culinaires auprès de sa grand-mère. Diplômée en gestion hôtelière, elle combine tradition ancestrale et standards modernes."
+      quote: t('story.founder_quote'),
+      background: t('story.founder_background')
     },
     mission: {
-      title: 'Notre Mission',
-      description: 'Préserver et partager l\'authenticité de la cuisine camerounaise tout en s\'adaptant aux besoins modernes de livraison et de qualité.',
+      title: t('story.mission_title'),
+      description: t('story.mission_desc'),
       icon: Heart,
       color: 'text-red-500'
     },
     vision: {
-      title: 'Notre Vision',
-      description: 'Devenir la référence de la cuisine camerounaise authentique, connectant les cœurs et les palais à travers nos saveurs traditionnelles.',
+      title: t('story.vision_title'),
+      description: t('story.vision_desc'),
       icon: Star,
       color: 'text-golden-500'
     }
@@ -49,29 +51,29 @@ const OurStory: React.FC = () => {
   const values = [
     {
       icon: ChefHat,
-      title: 'Authenticité',
-      description: 'Recettes traditionnelles transmises de génération en génération, respectant les méthodes ancestrales.',
+      title: t('story.authenticity'),
+      description: t('story.authenticity_desc'),
       color: 'text-forest-600',
       bgColor: 'bg-forest-50'
     },
     {
       icon: Award,
-      title: 'Qualité Premium',
-      description: 'Ingrédients soigneusement sélectionnés, préparation méticuleuse et standards d\'hygiène stricts.',
+      title: t('story.premium_quality'),
+      description: t('story.premium_quality_desc'),
       color: 'text-golden-600',
       bgColor: 'bg-golden-50'
     },
     {
       icon: Heart,
-      title: 'Passion Culinaire',
-      description: 'Amour pour la cuisine camerounaise et engagement à offrir une expérience gustative memorable.',
+      title: t('story.culinary_passion'),
+      description: t('story.culinary_passion_desc'),
       color: 'text-red-600',
       bgColor: 'bg-red-50'
     },
     {
       icon: Users,
-      title: 'Communauté',
-      description: 'Créer des liens autour de la table, rassembler les familles et faire découvrir notre culture.',
+      title: t('story.community'),
+      description: t('story.community_desc'),
       color: 'text-blue-600',
       bgColor: 'bg-blue-50'
     }
@@ -80,31 +82,31 @@ const OurStory: React.FC = () => {
   const journey = [
     {
       year: '1995',
-      title: 'Les Premières Saveurs',
-      description: 'Caroline découvre sa passion pour la cuisine aux côtés de sa grand-mère Mama Folefack.',
+      title: t('story.first_flavors'),
+      description: t('story.first_flavors_desc'),
       icon: Home,
               image: '/image/admin-caro2.jpeg'
     },
     {
       year: '2018',
-      title: 'Formation Culinaire',
-      description: 'Perfectionnement des techniques et apprentissage des standards internationaux.',
+      title: t('story.culinary_training'),
+      description: t('story.culinary_training_desc'),
       icon: ChefHat,
               image: '/image/admin-caro3.jpeg'
     },
     {
       year: '2020',
-      title: 'Naissance de BueaDelights',
-      description: 'Création officielle du restaurant avec les premières livraisons à Buea.',
+      title: t('story.birth_bueadelights'),
+      description: t('story.birth_bueadelights_desc'),
       icon: Award,
-      image: '/images/story-launch.jpg'
+              image: '/image/admin-carol.jpeg'
     },
     {
       year: '2024',
-      title: 'Leader Reconnu',
-      description: '1500+ clients satisfaits, référence de la cuisine camerounaise authentique.',
+      title: t('story.recognized_leader'),
+      description: t('story.recognized_leader_desc'),
       icon: Star,
-      image: '/images/story-success.jpg'
+              image: '/image/brioche-maison.jpeg'
     }
   ];
 
@@ -157,7 +159,7 @@ const OurStory: React.FC = () => {
           >
             <Heart className="w-8 h-8 text-red-500" />
             <h2 className="text-4xl md:text-5xl font-bold text-charcoal-800 font-heading">
-              Notre Histoire
+              {t('story.title')}
             </h2>
             <Heart className="w-8 h-8 text-red-500" />
           </motion.div>
@@ -169,8 +171,7 @@ const OurStory: React.FC = () => {
             viewport={{ once: true }}
             className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed"
           >
-            Une aventure culinaire née de la passion pour les saveurs authentiques du Cameroun. 
-            Découvrez l'histoire de BueaDelights et de sa fondatrice visionnaire.
+            {t('story.subtitle')}
           </motion.p>
         </div>
 
@@ -191,7 +192,7 @@ const OurStory: React.FC = () => {
                 className="relative"
               >
                 <img
-                  src="/avatars/caroline-founder.jpg"
+                  src="/avatars/girls.jpeg"
                   alt="Caroline Folefack Viviane - Fondatrice BueaDelights"
                   className="w-full h-80 object-cover rounded-2xl shadow-lg"
                   onError={(e) => {
@@ -218,7 +219,7 @@ const OurStory: React.FC = () => {
                 {/* Location */}
                 <div className="flex items-center text-gray-600 mb-6">
                   <MapPin className="w-5 h-5 mr-2" />
-                  <span>Buea, Région du Sud-Ouest, Cameroun</span>
+                  <span>{t('story.location')}</span>
                 </div>
               </div>
 
@@ -236,11 +237,11 @@ const OurStory: React.FC = () => {
               <div className="grid grid-cols-2 gap-4 mt-8">
                 <div className="text-center p-4 bg-forest-50 rounded-xl">
                   <div className="text-2xl font-bold text-forest-600 mb-1">4+</div>
-                  <div className="text-sm text-gray-600">Années d'Excellence</div>
+                  <div className="text-sm text-gray-600">{t('story.years_excellence')}</div>
                 </div>
                 <div className="text-center p-4 bg-golden-50 rounded-xl">
                   <div className="text-2xl font-bold text-golden-600 mb-1">1500+</div>
-                  <div className="text-sm text-gray-600">Clients Fidèles</div>
+                  <div className="text-sm text-gray-600">{t('story.loyal_customers')}</div>
                 </div>
               </div>
             </div>
@@ -303,10 +304,10 @@ const OurStory: React.FC = () => {
         >
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold text-charcoal-800 mb-4 font-heading">
-              Nos Valeurs
+              {t('story.values_title')}
             </h3>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Les principes qui guident notre passion culinaire et notre engagement envers l'excellence.
+              {t('story.values_subtitle')}
             </p>
           </div>
 
@@ -343,11 +344,10 @@ const OurStory: React.FC = () => {
           <div className="text-center mb-12">
             <Clock className="w-10 h-10 text-forest-200 mx-auto mb-4" />
             <h3 className="text-3xl font-bold mb-4 font-heading">
-              Notre Parcours
+              {t('story.journey_title')}
             </h3>
             <p className="text-forest-100 max-w-2xl mx-auto">
-              Un voyage culinaire qui a débuté dans les cuisines traditionnelles 
-              pour devenir la référence de l'authenticité camerounaise.
+              {t('story.journey_subtitle')}
             </p>
           </div>
 

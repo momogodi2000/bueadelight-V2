@@ -54,26 +54,26 @@ function App() {
             <div className="min-h-screen bg-white text-charcoal-700 font-body">
               {/* Global SEO Meta Tags */}
               <Helmet>
-                <title>{SEO_CONFIG.defaultTitle}</title>
-                <meta name="description" content={SEO_CONFIG.defaultDescription} />
+                <title>{SEO_CONFIG.defaultTitle || 'BueaDelights'}</title>
+                <meta name="description" content={SEO_CONFIG.defaultDescription || 'Authentic Cameroonian cuisine delivery service'} />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                 <meta name="theme-color" content="#1B5E20" />
-                <link rel="canonical" href={SEO_CONFIG.siteUrl} />
+                <link rel="canonical" href={SEO_CONFIG.siteUrl || 'https://bueadelights.com'} />
                 
                 {/* Open Graph Tags */}
                 <meta property="og:type" content="website" />
-                <meta property="og:title" content={SEO_CONFIG.defaultTitle} />
-                <meta property="og:description" content={SEO_CONFIG.defaultDescription} />
-                <meta property="og:image" content={`${SEO_CONFIG.siteUrl}${SEO_CONFIG.defaultImage}`} />
-                <meta property="og:url" content={SEO_CONFIG.siteUrl} />
+                <meta property="og:title" content={SEO_CONFIG.defaultTitle || 'BueaDelights'} />
+                <meta property="og:description" content={SEO_CONFIG.defaultDescription || 'Authentic Cameroonian cuisine delivery service'} />
+                <meta property="og:image" content={`${SEO_CONFIG.siteUrl || 'https://bueadelights.com'}${SEO_CONFIG.defaultImage || '/og-image.jpg'}`} />
+                <meta property="og:url" content={SEO_CONFIG.siteUrl || 'https://bueadelights.com'} />
                 <meta property="og:site_name" content="BueaDelights" />
                 
                 {/* Twitter Card Tags */}
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:site" content={SEO_CONFIG.twitterHandle} />
-                <meta name="twitter:title" content={SEO_CONFIG.defaultTitle} />
-                <meta name="twitter:description" content={SEO_CONFIG.defaultDescription} />
-                <meta name="twitter:image" content={`${SEO_CONFIG.siteUrl}${SEO_CONFIG.defaultImage}`} />
+                <meta name="twitter:site" content={SEO_CONFIG.twitterHandle || '@bueadelights'} />
+                <meta name="twitter:title" content={SEO_CONFIG.defaultTitle || 'BueaDelights'} />
+                <meta name="twitter:description" content={SEO_CONFIG.defaultDescription || 'Authentic Cameroonian cuisine delivery service'} />
+                <meta name="twitter:image" content={`${SEO_CONFIG.siteUrl || 'https://bueadelights.com'}${SEO_CONFIG.defaultImage || '/og-image.jpg'}`} />
                 
                 {/* Additional Meta Tags */}
                 <meta name="author" content="Caroline Folefack Viviane - BueaDelights" />
@@ -88,7 +88,7 @@ function App() {
                     "@type": "Restaurant",
                     "name": "BueaDelights",
                     "description": "Authentic Cameroonian cuisine delivery service in Buea",
-                    "url": SEO_CONFIG.siteUrl,
+                    "url": SEO_CONFIG.siteUrl || "https://bueadelights.com",
                     "telephone": "+237699808260",
                     "address": {
                       "@type": "PostalAddress",
