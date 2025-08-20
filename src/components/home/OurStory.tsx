@@ -30,7 +30,7 @@ const OurStory: React.FC = () => {
     founder: {
       name: 'Caroline Folefack Viviane',
       title: t('about.founder_title'),
-      image: '/avatars/girls.jpeg',
+      image: '/image/admin-caro3.jpeg',
       quote: t('story.founder_quote'),
       background: t('story.founder_background')
     },
