@@ -255,6 +255,27 @@ export const menuData: MenuItem[] = [
   },
 
   {
+    id: 'beignet_sucre_001',
+    name: 'Beignets Sucrés',
+    category: 'snacks',
+    description: 'Sweet sugar beignets, light and fluffy pastries perfect for dessert or afternoon snack',
+    ingredients: ['Farine', 'Sucre', 'Levure', 'Lait', 'Beurre', 'Œufs', 'Huile végétale'],
+    allergens: ['Gluten', 'Œufs', 'Lait'],
+    prices: {
+      small: { amount: 400, label: '3 pièces' },
+      medium: { amount: 700, label: '6 pièces' },
+      large: { amount: 1000, label: '9 pièces' }
+    },
+    images: ['beignet sucre.jpg'],
+    spiciness: 0,
+    preparationTime: '12-15 min',
+    rating: 4.6,
+    reviewCount: 189,
+    availability: true,
+    badge: 'popular'
+  },
+
+  {
     id: 'chin_chin_001',
     name: 'Chin Chin Croustillant',
     category: 'snacks',
@@ -743,6 +764,111 @@ export const menuData: MenuItem[] = [
     reviewCount: 298,
     availability: true,
     badge: 'popular'
+  },
+
+  // NEW MENU ITEMS USING UNUSED MEDIA
+  {
+    id: 'croissant_001',
+    name: 'Croissant Beurré',
+    category: 'breakfast',
+    description: 'Buttery, flaky croissant, perfect for breakfast or light snack',
+    ingredients: ['Farine', 'Beurre', 'Lait', 'Levure', 'Sucre', 'Sel', 'Œufs'],
+    allergens: ['Gluten', 'Œufs', 'Lait'],
+    prices: {
+      small: { amount: 300, label: '1 croissant' },
+      medium: { amount: 500, label: '2 croissants' },
+      large: { amount: 700, label: '3 croissants' }
+    },
+    images: ['crousant.jpg'],
+    spiciness: 0,
+    preparationTime: '5 min',
+    rating: 4.4,
+    reviewCount: 134,
+    availability: true
+  },
+
+  {
+    id: 'hamburger_001',
+    name: 'Hamburger Camerounais',
+    category: 'grilled',
+    description: 'Cameroonian-style beef burger with local spices, vegetables and plantain chips',
+    ingredients: ['Pain hamburger', 'Bœuf haché', 'Salade', 'Tomates', 'Oignons', 'Épices locales', 'Plantains'],
+    allergens: ['Gluten'],
+    prices: {
+      small: { amount: 1800, label: 'Simple' },
+      medium: { amount: 2500, label: 'Double viande' },
+      large: { amount: 3200, label: 'Triple avec frites' }
+    },
+    images: ['humborgue.jpg'],
+    spiciness: 2,
+    preparationTime: '15-20 min',
+    rating: 4.5,
+    reviewCount: 298,
+    availability: true,
+    badge: 'new'
+  },
+
+  {
+    id: 'pizza_camerounaise_001',
+    name: 'Pizza Camerounaise',
+    category: 'grilled',
+    description: 'Local-style pizza with plantains, smoked fish, and traditional vegetables',
+    ingredients: ['Pâte à pizza', 'Sauce tomate', 'Fromage', 'Plantains', 'Poisson fumé', 'Légumes locaux', 'Épices'],
+    allergens: ['Gluten', 'Lait', 'Poissons'],
+    prices: {
+      small: { amount: 2200, label: 'Petite (6 parts)' },
+      medium: { amount: 3500, label: 'Moyenne (8 parts)' },
+      large: { amount: 4800, label: 'Grande (12 parts)' }
+    },
+    images: ['piza.jpg', 'pizza 2.pg.jpg'],
+    spiciness: 2,
+    preparationTime: '25-30 min',
+    rating: 4.7,
+    reviewCount: 267,
+    availability: true,
+    badge: 'popular'
+  },
+
+  {
+    id: 'pili_pili_sauce_001',
+    name: 'Sauce Pili-Pili',
+    category: 'traditional',
+    description: 'Spicy pili-pili pepper sauce, perfect condiment for meat and fish dishes',
+    ingredients: ['Piment pili-pili', 'Tomates', 'Oignons', 'Ail', 'Gingembre', 'Huile', 'Vinaigre'],
+    allergens: [],
+    prices: {
+      small: { amount: 500, label: 'Petit pot' },
+      medium: { amount: 800, label: 'Pot moyen' },
+      large: { amount: 1200, label: 'Grand pot' }
+    },
+    images: ['pili pili.jpg'],
+    spiciness: 5,
+    preparationTime: '5 min',
+    rating: 4.8,
+    reviewCount: 445,
+    availability: true,
+    badge: 'spicy'
+  },
+
+  {
+    id: 'pack_special_001',
+    name: 'Pack Spécial 12 000 FCFA',
+    category: 'traditional',
+    description: 'Special family package with mixed traditional dishes, perfect for sharing',
+    ingredients: ['Ndolé', 'Riz jollof', 'Poisson braisé', 'Plantains', 'Pain', 'Jus'],
+    allergens: ['Poissons', 'Arachides'],
+    prices: {
+      small: { amount: 12000, label: 'Pack famille (2-3 personnes)' },
+      medium: { amount: 18000, label: 'Pack grande famille (4-5 personnes)' },
+      large: { amount: 25000, label: 'Pack événement (6-8 personnes)' }
+    },
+    images: ['packages 12 mille facfa.jpg'],
+    spiciness: 3,
+    preparationTime: '45-50 min',
+    rating: 4.9,
+    reviewCount: 189,
+    availability: true,
+    badge: 'house-special'
   }
 ];
 

@@ -67,6 +67,48 @@ const MediaShowcase: React.FC = () => {
           path: '/image/Chips de plantain.jpeg',
           description: 'Crispy plantain chips',
           category: 'Snacks'
+        },
+        {
+          name: 'Beignet Sucré',
+          path: '/image/beignet sucre.jpg',
+          description: 'Sweet sugar beignets',
+          category: 'Desserts'
+        },
+        {
+          name: 'Croissant',
+          path: '/image/crousant.jpg',
+          description: 'Buttery croissant',
+          category: 'Bread & Pastries'
+        },
+        {
+          name: 'Hamburger Camerounais',
+          path: '/image/humborgue.jpg',
+          description: 'Local-style hamburger',
+          category: 'Grilled Specialties'
+        },
+        {
+          name: 'Pizza Camerounaise',
+          path: '/image/piza.jpg',
+          description: 'Cameroonian-style pizza',
+          category: 'Grilled Specialties'
+        },
+        {
+          name: 'Pizza Variant',
+          path: '/image/pizza 2.pg.jpg',
+          description: 'Another pizza variety',
+          category: 'Grilled Specialties'
+        },
+        {
+          name: 'Sauce Pili-Pili',
+          path: '/image/pili pili.jpg',
+          description: 'Spicy pili-pili sauce',
+          category: 'Condiments & Sauces'
+        },
+        {
+          name: 'Pack Spécial',
+          path: '/image/packages 12 mille facfa.jpg',
+          description: 'Special family package deal',
+          category: 'Packages & Deals'
         }
       ]
     },

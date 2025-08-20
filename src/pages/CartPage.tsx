@@ -38,66 +38,85 @@ const CartPage: React.FC = () => {
   const generateWhatsAppMessage = () => {
     if (items.length === 0) return '';
 
-    let message = `🍽️ *${t('cart.new_order')}*\n\n`;
-    message += `👤 *${t('cart.client')}:* ${customerInfo.name}\n`;
-    message += `📱 *${t('cart.telephone')}:* ${customerInfo.phone}\n`;
+    let message = `🍽️ *NOUVELLE COMMANDE - BUEADELIGHTS*\n\n`;
+    message += `👤 *Client:* ${customerInfo.name}\n`;
+    message += `📱 *Téléphone:* ${customerInfo.phone}\n`;
     
     if (selectedDeliveryZone) {
-      message += `📍 *${t('cart.delivery_zone_label')}:* ${selectedDeliveryZone.name}\n`;
-      message += `⏱️ *${t('cart.estimated_time')}:* ${selectedDeliveryZone.estimatedTime}\n`;
+      message += `📍 *Zone de livraison:* ${selectedDeliveryZone.name}\n`;
+      message += `⏱️ *Temps estimé:* ${selectedDeliveryZone.estimatedTime}\n`;
     }
     
     if (customerInfo.address) {
-      message += `🏠 *${t('cart.address')}:* ${customerInfo.address}\n`;
+      message += `🏠 *Adresse:* ${customerInfo.address}\n`;
     }
     
-    message += `\n📝 *${t('cart.order_details')}:*\n\n`;
+    message += `\n📝 *DÉTAILS DE LA COMMANDE:*\n\n`;
     
     items.forEach((item, index) => {
+      const sizeLabels = {
+        small: 'Petite',
+        medium: 'Moyenne', 
+        large: 'Grande'
+      };
+      
       message += `${index + 1}. *${item.name}*\n`;
-      message += `   • ${t('cart.size')}: ${t(`menu.size_${item.size}`)}\n`;
-      message += `   • ${t('common.quantity')}: ${item.quantity}\n`;
-      message += `   • ${t('cart.unit_price')}: ${item.price.toLocaleString()} ${CURRENCY.symbol}\n`;
-      message += `   • ${t('cart.subtotal_item')}: ${(item.price * item.quantity).toLocaleString()} ${CURRENCY.symbol}\n\n`;
+      message += `   • Taille: ${sizeLabels[item.size]}\n`;
+      message += `   • Quantité: ${item.quantity}\n`;
+      message += `   • Prix unitaire: ${item.price.toLocaleString()} ${CURRENCY.symbol}\n`;
+      message += `   • Sous-total: ${(item.price * item.quantity).toLocaleString()} ${CURRENCY.symbol}\n\n`;
     });
     
-    message += `💰 *${t('cart.financial_summary')}:*\n`;
-    message += `• ${t('cart.subtotal_items')}: ${total.toLocaleString()} ${CURRENCY.symbol}\n`;
-    message += `• ${t('common.delivery_fee')}: ${deliveryFee.toLocaleString()} ${CURRENCY.symbol}\n`;
-    message += `• *${t('common.total').toUpperCase()}: ${grandTotal.toLocaleString()} ${CURRENCY.symbol}*\n\n`;
+    message += `💰 *RÉSUMÉ FINANCIER:*\n`;
+    message += `• Sous-total articles: ${total.toLocaleString()} ${CURRENCY.symbol}\n`;
+    message += `• Frais de livraison: ${deliveryFee.toLocaleString()} ${CURRENCY.symbol}\n`;
+    message += `• *TOTAL À PAYER: ${grandTotal.toLocaleString()} ${CURRENCY.symbol}*\n\n`;
     
     if (customerInfo.notes) {
-      message += `📋 *${t('cart.special_notes')}:*\n${customerInfo.notes}\n\n`;
+      message += `📋 *Notes spéciales:*\n${customerInfo.notes}\n\n`;
     }
     
-    message += `🕐 ${t('cart.order_placed_on')} ${new Date().toLocaleString()}\n\n`;
-    message += `${t('cart.confirm_order')}. 🙏`;
+    message += `🕐 Commande passée le ${new Date().toLocaleString('fr-FR')}\n\n`;
+    message += `Merci de confirmer la commande et le mode de paiement. 🙏\n\n`;
+    message += `*BueaDelights* - Saveurs locales à portée de main 🇨🇲`;
     
     return encodeURIComponent(message);
   };
 
   const handleWhatsAppOrder = () => {
     if (items.length === 0) {
-      alert(t('cart.validation_empty'));
+      alert('Votre panier est vide. Ajoutez des articles avant de commander.');
       return;
     }
     
     if (!customerInfo.name || !customerInfo.phone) {
-      alert(t('cart.validation_name_phone'));
+      alert('Veuillez renseigner votre nom et votre numéro de téléphone.');
       return;
     }
     
     if (!selectedZone) {
-      alert(t('cart.validation_delivery_zone'));
+      alert('Veuillez sélectionner une zone de livraison.');
+      return;
+    }
+
+    // Validate phone number format
+    const phoneRegex = /^(\+?237|0)?[67]\d{8}$/;
+    if (!phoneRegex.test(customerInfo.phone.replace(/\s+/g, ''))) {
+      alert('Veuillez entrer un numéro de téléphone camerounais valide (ex: 699808260).');
       return;
     }
 
     const message = generateWhatsAppMessage();
     const whatsappUrl = `https://wa.me/${BUSINESS_INFO.whatsappNumberFormatted}?text=${message}`;
-    window.open(whatsappUrl, '_blank');
     
-    // Show success message
-    alert(t('success.order_placed'));
+    try {
+      window.open(whatsappUrl, '_blank');
+      // Show success message
+      alert('Commande transmise avec succès! Vous allez être redirigé vers WhatsApp.');
+    } catch (error) {
+      console.error('Error opening WhatsApp:', error);
+      alert('Erreur lors de l\'ouverture de WhatsApp. Veuillez réessayer.');
+    }
   };
 
   if (items.length === 0) {

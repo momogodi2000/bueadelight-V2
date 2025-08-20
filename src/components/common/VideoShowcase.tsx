@@ -60,6 +60,30 @@ const VideoShowcase: React.FC = () => {
       path: '/videos/biegnet2.mp4',
       thumbnail: '/image/croquette.jpeg',
       category: 'Process'
+    },
+    {
+      id: 'croquette',
+      title: 'Préparation des Croquettes',
+      description: 'Fabrication artisanale des croquettes de plantain',
+      path: '/videos/croquette.mp4',
+      thumbnail: '/image/croquette.jpeg',
+      category: 'Process'
+    },
+    {
+      id: 'ndoles_pack',
+      title: 'Pack Ndolé Traditionnel',
+      description: 'Présentation de notre pack ndolé complet',
+      path: '/videos/ndoles pack.mp4',
+      thumbnail: '/image/ndole_main.webp',
+      category: 'Marketing'
+    },
+    {
+      id: 'ndoles_pack2',
+      title: 'Pack Ndolé Premium',
+      description: 'Notre pack ndolé premium avec accompagnements',
+      path: '/videos/ndoles pack 2.jpg.mp4',
+      thumbnail: '/image/packages 12 mille facfa.jpg',
+      category: 'Marketing'
     }
   ];
 

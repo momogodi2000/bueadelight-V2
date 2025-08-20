@@ -399,7 +399,7 @@ const ServicesPage: React.FC = () => {
                     </div>
                   </div>
 
-                  {service.id === 'international-delivery' && (
+                  {service.id === 'international-delivery' && service.regions && (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                       {service.regions.map((region) => (
                         <div key={region.name} className="border border-gray-200 rounded-lg p-4">
@@ -420,7 +420,7 @@ const ServicesPage: React.FC = () => {
                     </div>
                   )}
 
-                  {service.id === 'chef-travel' && (
+                  {service.id === 'chef-travel' && service.services && (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                       {service.services.map((svc, index) => (
                         <div key={index} className="border border-gray-200 rounded-lg p-4">

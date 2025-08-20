@@ -33,7 +33,7 @@ const WhatsAppFloat: React.FC = () => {
       id: 'cart',
       label: `Panier ${itemCount > 0 ? `(${itemCount})` : ''}`,
       message: itemCount > 0 
-        ? `Bonjour! J'ai ${itemCount} article(s) dans mon panier et je souhaite finaliser ma commande. Pouvez-vous me confirmer la disponibilité et le temps de livraison? 🛒`
+        ? `Bonjour BueaDelights! J'ai ${itemCount} article(s) dans mon panier:\n\n${items.map((item, index) => `${index + 1}. ${item.name} (${item.size}) x${item.quantity}`).join('\n')}\n\nJe souhaite finaliser ma commande. Pouvez-vous me confirmer la disponibilité et le temps de livraison? 🛒`
         : 'Bonjour! Je souhaite passer une commande. Pouvez-vous m\'aider à choisir parmi vos plats traditionnels camerounais? 🛒',
       icon: ShoppingCart,
       color: 'bg-forest-500 hover:bg-forest-600'
@@ -113,10 +113,18 @@ const WhatsAppFloat: React.FC = () => {
         });
       }
 
-      // If cart has items, suggest cart completion
-      const message = itemCount > 0 
-        ? `Bonjour BueaDelights! J'ai ${itemCount} article(s) dans mon panier et je souhaite passer ma commande. Pouvez-vous m'assister? 🛒✨`
-        : 'Bonjour BueaDelights! Je souhaite découvrir votre cuisine camerounaise authentique. Que me recommandez-vous aujourd\'hui? 🍽️';
+      // If cart has items, provide detailed cart info
+      let message = '';
+      if (itemCount > 0) {
+        message = `Bonjour BueaDelights! J'ai ${itemCount} article(s) dans mon panier:\n\n`;
+        items.forEach((item, index) => {
+          const sizeLabels = { small: 'Petite', medium: 'Moyenne', large: 'Grande' };
+          message += `${index + 1}. ${item.name} (${sizeLabels[item.size as keyof typeof sizeLabels]}) x${item.quantity}\n`;
+        });
+        message += `\nJe souhaite passer ma commande. Pouvez-vous m'assister pour finaliser? 🛒✨`;
+      } else {
+        message = 'Bonjour BueaDelights! Je souhaite découvrir votre cuisine camerounaise authentique. Que me recommandez-vous aujourd\'hui? 🍽️';
+      }
 
       const encodedMessage = encodeURIComponent(message);
       window.open(`${WHATSAPP_LINK}?text=${encodedMessage}`, '_blank');
